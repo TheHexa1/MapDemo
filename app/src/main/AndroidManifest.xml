@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.erichamion.freelance.oakglen"
+    android:installLocation="auto">
+
+    <!--
+    minSdkVersion and targetSdkVersion are defined in
+    project build scripts, so do not need to be given here.
+    -->
+
+    <supports-screens
+        android:largeScreens="true"
+        android:xlargeScreens="true" />
+
+    <!-- Used by the auto-connect feature -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Used by the maps/navigation feature -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- Used by both auto-connect and maps/navigation -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:name=".ExceptionHandlerApplication"
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.skobbler.ngx.API_KEY"
+            android:value="@string/api_key_for_development_use_only" />
+
+        <activity
+            android:name=".EmbeddedBrowser"
+            android:configChanges="orientation|screenSize"
+            android:label="Server Page"
+            android:screenOrientation="sensorLandscape" />
+
+        <service
+            android:name=".WiFiService"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:stopWithTask="true" />
+
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity
+            android:name=".MapActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChapterActivity"
+            android:label="@string/title_activity_chapter"
+            android:launchMode="singleTop"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.erichamion.freelance.oakglen.MainActivity" />
+        </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about_town"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.erichamion.freelance.oakglen.MainActivity" />
+        </activity>
+        <activity
+            android:name=".FeedbackActivity"
+            android:label="@string/title_activity_feedback"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.erichamion.freelance.oakglen.MainActivity" />
+        </activity>
+        <activity android:name=".HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

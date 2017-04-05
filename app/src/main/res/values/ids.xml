@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="pageObjectTagKey" type="id" />
+    <item name="pageIndexTagKey" type="id" />
+    <item name="viewTypeTitle" type="id" />
+    <item name="viewTypeChapter" type="id" />
+    <item name="bitmapTypeThumbnail" type="id" />
+    <item name="bitmapTypeFullWidth" type="id" />
+    <item name="bitmapTypeTrueFullscreen" type="id" />
+    <item name="reusableBitmapAttachTagKey" type="id" />
+    <item name="bitmapSourceResId" type="id" />
+    <item name="bitmapSourceFile" type="id" />
+    <item name="permissionRequestMenu" type="id" />
+    <item name="permissionRequestMap" type="id" />
+</resources>

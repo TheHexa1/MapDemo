@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<book
+    title="@string/main_title"
+    latitude="34.052983"
+    longitude="-116.954708"
+    background="@drawable/background_img"
+    backgroundGravity="center|fill">
+    <chapter title="Oak Glen School House">
+        <page
+            img="@drawable/pageimg_01_01"
+            gravity="centerCrop"
+            latitude="34.038383333"
+            longitude="-116.935883333" />
+        <page
+            img="@drawable/pageimg_01_02"
+            gravity="centerCrop"
+            latitude="34.0385"
+            longitude="-116.9371" />
+        <page
+            img="@drawable/pageimg_01_03"
+            gravity="centerCrop"
+            latitude="34.038966667"
+            longitude="-116.9369" />
+    </chapter>
+    <chapter title="Los Rios Rancho">
+        <page
+            img="@drawable/pageimg_02_01"
+            gravity="fitEnd"
+            background="@drawable/background_blue_gradient"
+            latitude="34.040416667"
+            longitude="-116.941233333" />
+        <page
+            img="@drawable/pageimg_02_02"
+            gravity="centerCrop"
+            latitude="34.0406"
+            longitude="-116.941783333" />
+        <page
+            img="@drawable/pageimg_02_03"
+            gravity="centerCrop"
+            latitude="34.041016667"
+            longitude="-116.941366667" />
+    </chapter>
+    <chapter title="Snowline Orchard">
+        <page
+            img="@drawable/pageimg_03_01"
+            gravity="centerCrop"
+            latitude="34.04415"
+            longitude="-116.947816667" />
+        <page
+            img="@drawable/pageimg_03_02"
+            gravity="centerCrop"
+            latitude="34.044416667"
+            longitude="-116.94775" />
+    </chapter>
+    <chapter title="Oak Tree Village">
+        <page
+            img="@drawable/pageimg_04_01"
+            gravity="centerCrop"
+            latitude="34.051466667"
+            longitude="-116.952533333" />
+        <page
+            img="@drawable/pageimg_04_02"
+            gravity="centerCrop"
+            background="@drawable/background_white"
+            latitude="34.051133333"
+            longitude="-116.951566667" />
+    </chapter>
+    <chapter title="Riley's Farm">
+        <page
+            img="@drawable/pageimg_05_01"
+            gravity="centerCrop"
+            latitude="34.031616667"
+            longitude="-116.943416667" />
+        <page
+            img="@drawable/pageimg_05_02"
+            gravity="centerCrop"
+            latitude="34.0332"
+            longitude="-116.939266667" />
+        <page
+            img="@drawable/pageimg_05_03"
+            gravity="centerCrop"
+            latitude="34.032483333"
+            longitude="-116.939666667" />
+        <page
+            img="@drawable/pageimg_05_04"
+            gravity="fitCenter"
+            latitude="34.0331"
+            longitude="-116.939266667" />
+    </chapter>
+</book>

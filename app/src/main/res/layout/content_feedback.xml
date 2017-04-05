@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:orientation="horizontal"
+    tools:context="com.erichamion.freelance.oakglen.FeedbackActivity"
+    tools:showIn="@layout/activity_feedback"
+    android:id="@+id/rootContentView">
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:minWidth="@dimen/activity_horizontal_margin" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/questionsHolder"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/feedback_intro"
+                android:padding="@dimen/view_margin_size"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:gravity="center" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/feedback_separation"
+                android:id="@+id/age" >
+
+                <include layout="@layout/view_divider"
+                    android:id="@+id/divider" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/age_question"
+                    android:id="@+id/question"
+                    android:layout_alignParentTop="false"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/divider"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:layout_marginTop="@dimen/view_margin_size" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/answerAge"
+                    android:layout_below="@id/question"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="@dimen/view_margin_size"
+                    android:entries="@array/ageOptions" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/feedback_separation"
+                android:id="@+id/overallRating">
+
+                <include layout="@layout/view_divider"
+                    android:id="@id/divider" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_rating_question"
+                    android:id="@id/question"
+                    android:layout_alignParentTop="false"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/divider"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:layout_marginTop="@dimen/view_margin_size" />
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/answerOverallRating"
+                    android:layout_below="@+id/question"
+                    android:indeterminateOnly="false"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="@dimen/view_margin_size" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/feedback_separation"
+                android:id="@+id/recentVisit" >
+
+                <include layout="@layout/view_divider"
+                    android:id="@id/divider" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recent_visit_question"
+                    android:id="@id/question"
+                    android:layout_alignParentTop="false"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/divider"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:layout_marginTop="@dimen/view_margin_size" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/answerRecentVisit"
+                    android:layout_below="@id/question"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="@dimen/view_margin_size"
+                    android:entries="@array/visitedOptions" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/feedback_separation"
+                android:id="@+id/visitRating"
+                android:visibility="gone">
+
+                <include layout="@layout/view_divider"
+                    android:id="@id/divider" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visit_rating_question"
+                    android:id="@id/question"
+                    android:layout_alignParentTop="false"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/divider"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:layout_marginTop="@dimen/view_margin_size" />
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/answerVisitRating"
+                    android:layout_below="@+id/question"
+                    android:indeterminateOnly="false"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="@dimen/view_margin_size" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/feedback_separation"
+                android:id="@+id/relevance"
+                android:visibility="gone">
+
+                <include layout="@layout/view_divider"
+                    android:id="@id/divider" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/relevance_question"
+                    android:id="@id/question"
+                    android:layout_alignParentTop="false"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/divider"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:layout_marginTop="@dimen/view_margin_size" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/answerRelevance"
+                    android:layout_below="@id/question"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="@dimen/view_margin_size"
+                    android:inputType="textMultiLine"
+                    android:lines="3" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/feedback_separation"
+                android:id="@+id/comments" >
+
+                <include layout="@layout/view_divider"
+                    android:id="@id/divider" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/comments_question"
+                    android:id="@id/question"
+                    android:layout_alignParentTop="false"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/divider"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:layout_marginTop="@dimen/view_margin_size" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/answerComments"
+                    android:layout_below="@id/question"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="@dimen/view_margin_size"
+                    android:inputType="textMultiLine"
+                    android:lines="3" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:minWidth="@dimen/activity_horizontal_margin" />
+
+
+</LinearLayout>
+
+
+
+
+    <!--
+    <?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.erichamion.freelance.oakglen.FeedbackActivity"
+        tools:showIn="@layout/activity_feedback">
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/webView" />
+    </RelativeLayout>
+    -->

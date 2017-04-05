@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">Discover Oak Glen</string>
+    <string name="main_title">Oak Glen</string>
+    <string name="subtitle">Discover</string>
+    <string name="thumbnail_description">Chapter Preview</string>
+    <string name="title_activity_chapter">ChapterActivity</string>
+    <string name="page_image_description">Location Photo</string>
+    <string name="previous_chapter">Previous Chapter</string>
+    <string name="next_chapter">Next Chapter</string>
+    <string name="shortlong_cutoff_ratio">"0.7"</string>
+    <string name="eula_disagree">I Disagree</string>
+    <string name="eula_agree">I Agree</string>
+    <string name="about_town">About Oak Glen</string>
+    <string name="about_app">About This App</string>
+    <string name="title_activity_about_town">AboutTownActivity</string>
+    <string name="about_short">About</string>
+    <string name="wifi_auto_connect">Wi-Fi Auto-Connect</string>
+    <string name="maps_by_scout">Map rendering powered by Scout</string>
+    <string name="skobbler_attrib_url">http://developer.skobbler.com/attribution</string>
+    <string name="feedback">Feedback</string>
+    <string name="title_activity_feedback">Feedback</string>
+    <string name="api_key_for_development_use_only" translatable="false">
+        4cd6cf0a7b00b9bd5399e8b7f8229a92
+    </string>
+    <string name="feedback_intro">
+        Thank you for using the Discover Glen Oak app.
+        We\'d like to ask a few questions about your experience.
+    </string>
+    <string name="app_rating_question">How would you rate this app?</string>
+    <string name="comments_question">Finally, what would you like to tell us about your experience with this app that has not been covered above?</string>
+    <string name="recent_visit_question">Have you recently visited the town of Oak Glen?</string>
+    <string name="visit_rating_question">How would you rate your visit?</string>
+    <string name="relevance_question">How would you say this app enhanced your visit?</string>
+    <string name="age_question">First, we\'d like to get an idea of who is using this app. What is your age?</string>
+    <string name="permission_explanation">
+        An important part of this discovery app\'s experience is the ability to connect to CIM EDUCATIONAL BEACONS. When you reach a
+        specific photo location the app will automatically stream fun and educational content to your smart devices. This feature
+        depends on specific secure wi-fi beacons, which have been strategically placed in specific locations. In order to
+        automatically connect to these beacons, the Android system permissions to Access and Change Wi-Fi state, as well as to
+        receive coarse location information, are required.\n\n
+        To enable the CIM EDUCATIONAL BEACONS feature, please turn on Wi-Fi Auto-Connect from the app\'s menu, and accept the
+        permissions if prompted. If you have permanently denied the permissions (by selecting the \"Never ask again\" checkbox), then
+        you can re-enable them through your device\'s settings.
+    </string>
+
+    <string-array name="visitedOptions">
+        <item>No, but I plan to soon</item>
+        <item>No, and I don\'t plan to</item>
+        <item>Yes, I have visited recently</item>
+        <item>I\'m currently in Oak Glen</item>
+    </string-array>
+    <string-array name="ageOptions">
+        <item>Prefer not to answer</item>
+        <item>Under 12</item>
+        <item>12–17</item>
+        <item>18–24</item>
+        <item>25–34</item>
+        <item>35–44</item>
+        <item>45–54</item>
+        <item>55–69</item>
+        <item>70–89</item>
+        <item>90 or higher</item>
+    </string-array>
+    <string name="route_loading">Getting location and calculating route</string>
+    <string name="map_loading">Map Loading</string>
+    <string name="walking_distance">within walking distance</string>
+    <string name="calculating_route">Calculating route</string>
+    <string name="content_description_return">Return</string>
+</resources>

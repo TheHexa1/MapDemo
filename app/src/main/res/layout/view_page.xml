@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/view_margin_size"
+    android:layout_marginBottom="@dimen/view_margin_size"
+    app:cardCornerRadius="@dimen/view_margin_size">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:contentDescription="@string/page_image_description"
+            android:id="@+id/imageView"
+            android:adjustViewBounds="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:isIndicator="true"
+            android:id="@+id/visitedIndicator"
+            android:numStars="1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/chapter_preview_thumbnail_margin_size" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/imageView">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:id="@+id/latText"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_halfmargin" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:id="@+id/longText"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:paddingLeft="@dimen/activity_horizontal_halfmargin"
+                android:paddingRight="@dimen/activity_horizontal_margin" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

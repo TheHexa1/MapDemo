@@ -1,0 +1,28 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '25.0.0'
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    productFlavors {
+    }
+
+    useLibrary 'org.apache.http.legacy'
+}
+
+dependencies {
+    compile files('libs/SKMaps.jar')
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'joda-time:joda-time:2.4'
+}

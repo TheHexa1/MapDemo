@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menuAutoConnect"
+        android:title="@string/wifi_auto_connect"
+        app:showAsAction="never"
+        android:checkable="true"
+        android:orderInCategory="1" />
+    <item
+        android:id="@+id/menuAboutTown"
+        android:title="@string/about_town"
+        app:showAsAction="never"
+        android:orderInCategory="4" />
+    <item
+        android:id="@+id/menuAboutApp"
+        android:title="@string/about_app"
+        app:showAsAction="never"
+        android:orderInCategory="5" />
+    <item
+        android:id="@+id/menuFeedback"
+        android:title="@string/feedback"
+        app:showAsAction="never"
+        android:orderInCategory="6" />
+
+
+
+
+</menu>

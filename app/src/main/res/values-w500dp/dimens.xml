@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="chapter_preview_width">216dp</dimen>
+    <dimen name="chapter_preview_height">144dp</dimen>
+    <dimen name="chapter_preview_thumbnail_margin_size">24dp</dimen>
+    <dimen name="chapter_preview_text_size">@dimen/text_size_headline</dimen>
+    <dimen name="chapter_preview_text_separation">10sp</dimen>
+</resources>

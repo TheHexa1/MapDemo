@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="AdjustingTextView">
+        <attr name="targetWidthPercent" format="float" />
+        <attr name="useFastCalculation" format="boolean" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,27 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_halfmargin">8dp</dimen>
+    <dimen name="thumbnail_width">96dp</dimen>
+    <dimen name="thumbnail_height">64dp</dimen>
+    <dimen name="view_margin_size">10dp</dimen>
+    <dimen name="fab_margin">-2dp</dimen>
+    <dimen name="feedback_separation">20sp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="advice_image_width">48dp</dimen>
+    <dimen name="advice_image_height">48dp</dimen>
+    <dimen name="title_padding_bottom">12dp</dimen>
+    <dimen name="title_padding_top">20dp</dimen>
+    <dimen name="chapter_preview_height">@dimen/thumbnail_height</dimen>
+    <dimen name="chapter_preview_width">@dimen/thumbnail_width</dimen>
+    <dimen name="chapter_preview_thumbnail_margin_size">@dimen/view_margin_size</dimen>
+    <dimen name="text_size_subheading">16sp</dimen>
+    <dimen name="text_size_title">20sp</dimen>
+    <dimen name="text_size_headline">24sp</dimen>
+    <dimen name="chapter_preview_text_size">@dimen/text_size_subheading</dimen>
+    <dimen name="chapter_preview_text_separation">4sp</dimen>
+    <dimen name="header_cardview_elevation">4dp</dimen>
+    <dimen name="cardview_compensation_padding_sides">-4dp</dimen>
+    <dimen name="cardview_compensation_padding_top_bottom">-6dp</dimen>
+</resources>

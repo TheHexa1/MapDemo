@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="about_town_text" format="string" type="string">
+        One of the most scenic and historic spots in Southern California is nestled in the heart of Apple
+        Country in Oak Glen, California where the summers are cooler and the winters dusted with
+        snow. The five mile scenic loop of more than 30 ranches, farms and businesses are open year-
+        round. You will see one of the most scenic byways Southern California has to offer. Enoch
+        Parrish opened the first apple orchard in 1876, followed by the Wilshire family. The Rivers
+        brothers and their families came to Oak Glen in 1906. Their orchard, Los Rios Rancho (Spanish
+        for \"The Rivers Ranch\"), is still in operation, as are many of the other original orchards and
+        ranches in the area. The Law family came into the area in the early 1930s and started their own
+        apple orchard. They soon built the first roadside packinghouse, first restaurant and gift shops.
+        Los Rios Rancho a 103-year-old ranch; Southern California\'s largest historical apple ranch,
+        located in the heart of apple country, draws more than 300,000 visitors yearly who make the
+        scenic drive to Oak Glen to pick apples, picnic and hike as well as enjoy the ranchos homemade
+        apple pies and freshly pressed cider. Joseph E. Wilshire, who helped make the Oak Glen area
+        famous for apple growing in the early 1900s, realized early on the suitability of The Glen for
+        growing bountiful apples and began buying land where with his brothers George, Henry and
+        Edward began the Wilshire legacy years earlier. The original settlers to Oak Glen were the
+        Cahuilla and the Serrano Indians. They harvested acorns and ate blackberry and other local foods
+        to survive. The unique climate and elevation was perfect for growing large black acorns, a
+        favorite among the locals of their time. The evidence can still be found along the streambeds
+        where the acorns were leached over 100 years ago. Although the main crop of Oak Glen has
+        been apples since the 1940s, it hasn’t always been Oak Glen’s only crop. The potato along with
+        many other crops, were grown in Oak Glen since the 1890s. After several farms began to sell
+        apples individually to visitors, along with homemade apple pies, fresh apple cider and delicious
+        apple butter from roadside stands, Oak Glen became an apple boom town overnight. The apple
+        export trade has since virtually disappeared, and growers now earn much of their revenue from
+        visitors who are allowed to pick the apples directly from the trees which not only offers guests a
+        “back to nature” experience but also provides them with the freshest fruit with superior quality.
+        Today many of the heirloom varieties of apples are still grown in the Glen, varieties you would
+        be hard pressed to find anywhere else in the world, such as the Arkansas Black.
+    </item>
+    <item name="about_app_text" format="string" type="string">
+        Welcome to beautiful Oak Glen, California and congratulations on your purchase of the “Oak Glen Discovery Book”.
+        A fun and adventurous way to discover “The Glen”.\n
+        \n
+        The following pages of photographs were taken in various areas of Oak Glen. Your mission is to locate the items
+        in the picture. The photos are arranged in sections or chapters. Each chapter title is a specific and well known
+        destination in The Glen.\n
+        \n
+        To help with your “hunt” you will find, under each photo, the GPS coordinates of the subject shown. You can
+        either input those coordinates manually into your smart device\'s map software or, better yet, download the CIM
+        DISCOVERY APP from Google Play and simply scan the QR Code at the bottom of the page and follow the map to find
+        the “Photo Treasure”.\n
+        \n
+        One of the cool things you get when you download the CIM DISCOVERY APP is access to something we call the CIM
+        EDUCATIONAL BECONS. When you reach a specific photo location the app will automatically stream fun and
+        educational (location specific) content to your smart device\'s. Its a great way to not only explore but also
+        learn about the fascinating history and attractions of Oak Glen.\n
+        \n
+        \n
+        To download the CIM DISCOVERY APP go to Google Play and search “CIM DISCOVERY”. This is a free app and, for
+        those of us on a “Data Budget”, the content that is streamed to you does not require you to use your cellular
+        data. Just turn on your smart devices WiFi and enjoy the show.\n
+        \n
+        “Happy Travels”,\n
+        \n
+        Cyrano
+    </item>
+</resources>

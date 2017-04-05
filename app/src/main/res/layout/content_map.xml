@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MapActivity"
+    tools:showIn="@layout/activity_map">
+
+    <com.skobbler.ngx.map.SKMapViewHolder
+        android:id="@+id/view_group_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/map_loading"
+        android:id="@+id/loadingView"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Display2"
+        android:gravity="center"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" />
+
+    <ImageView
+        android:layout_width="96dp"
+        android:layout_height="64dp"
+        android:id="@+id/thumbnailImage"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:scaleType="centerCrop"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentTop="false"
+        android:layout_below="@+id/adviceHolder"
+        android:contentDescription="@string/content_description_return" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/adviceHolder">
+
+        <ImageView
+            android:layout_width="@dimen/advice_image_width"
+            android:layout_height="@dimen/advice_image_height"
+            android:id="@+id/adviceImage"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_alignParentLeft="true"
+            tools:ignore="ContentDescription" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/waitingIndicator"
+            android:layout_alignTop="@+id/adviceImage"
+            android:layout_alignLeft="@+id/adviceImage"
+            android:layout_alignBottom="@+id/adviceImage"
+            android:layout_alignRight="@+id/adviceImage" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/adviceText"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:lines="2"
+            android:maxLines="2"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:textColor="@color/primary_text_default_material_dark"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/adviceImage" />
+
+
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_below="@+id/adviceHolder"
+        android:layout_alignParentRight="true" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/walkFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="false"
+        android:layout_below="@+id/adviceHolder"
+        android:layout_toLeftOf="@+id/fab"
+        android:visibility="gone"
+        android:src="@drawable/ic_directions_walk_white_24dp" />
+
+
+</RelativeLayout>

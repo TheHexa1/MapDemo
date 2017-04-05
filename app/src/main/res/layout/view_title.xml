@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/titleHolder">
+
+    <com.erichamion.freelance.oakglen.AdjustingTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:targetWidthPercent="25"
+        app:useFastCalculation="true"
+        android:text="@string/subtitle"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/title_padding_top"
+        android:id="@+id/subtitleText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" />
+
+    <com.erichamion.freelance.oakglen.AdjustingTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textAllCaps="true"
+        app:targetWidthPercent="75"
+        app:useFastCalculation="true"
+        android:text="@string/main_title"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/title_padding_bottom"
+        android:textColor="@android:color/primary_text_light"
+        android:id="@+id/titleText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/subtitleText" />
+
+    <android.support.v7.widget.AppCompatRatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/visitedLocationsIndicator"
+        android:layout_above="@+id/latLongHolder"
+        android:numStars="1"
+        android:stepSize="1.0"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/view_margin_size"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/titleText"
+        android:id="@+id/latLongHolder">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:id="@+id/latText"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_halfmargin" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:id="@+id/longText"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:paddingLeft="@dimen/activity_horizontal_halfmargin"
+            android:paddingRight="@dimen/activity_horizontal_margin" />
+    </LinearLayout>
+</RelativeLayout>

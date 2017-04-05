@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.erichamion.freelance.oakglen.ChapterActivity"
+    tools:showIn="@layout/activity_chapter"
+    android:id="@+id/rootContentLayout">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/header_cardview_elevation"
+        app:cardMaxElevation="@dimen/header_cardview_elevation"
+        android:focusable="true"
+        app:cardCornerRadius="0dp"
+        app:cardBackgroundColor="@color/colorTranslucentBackground"
+        android:layout_marginLeft="@dimen/cardview_compensation_padding_sides"
+        android:layout_marginTop="@dimen/cardview_compensation_padding_top_bottom"
+        android:layout_marginRight="@dimen/cardview_compensation_padding_sides">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/chapterTitleText"
+                android:gravity="center_horizontal"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/previousIcon"
+                android:src="@drawable/ic_menu_back"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/previous_chapter"
+                android:padding="@dimen/view_margin_size"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/nextIcon"
+                android:src="@drawable/ic_menu_forward"
+                android:contentDescription="@string/next_chapter"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/view_margin_size"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mapRoot">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/pageHolder"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin">
+        </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+
+
+</LinearLayout>
