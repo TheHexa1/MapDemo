@@ -150,39 +150,39 @@ public class MainActivity
 
 
 
-        if (!prefs.contains(Util.PREFKEY_EULA)) {
-            enableMenu(false);
-            final View eulaView = getLayoutInflater().inflate(R.layout.eula, mRootContentView, false);
-            View cancelView = eulaView.findViewById(R.id.cancel);
-            cancelView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    finish();
-                }
-            });
-            View okView = eulaView.findViewById(R.id.ok);
-            okView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mRootContentView.removeView(eulaView);
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.putBoolean(Util.PREFKEY_EULA, true);
-                    editor.apply();
-                    enableMenu(true);
-
-                    if (prefs.getBoolean(Util.PREFKEY_AUTOCONNECT, true)) {
-                        Util.startWiFiService(MainActivity.this);
-                    }
-                }
-            });
-
-            RelativeLayout.LayoutParams eulaParams =
-                    new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            mRootContentView.addView(eulaView, eulaParams);
-
-        } else if (prefs.getBoolean(Util.PREFKEY_AUTOCONNECT, true)) {
-            Util.startWiFiService(this);
-        }
+//        if (!prefs.contains(Util.PREFKEY_EULA)) {
+//            enableMenu(false);
+//            final View eulaView = getLayoutInflater().inflate(R.layout.eula, mRootContentView, false);
+//            View cancelView = eulaView.findViewById(R.id.cancel);
+//            cancelView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    finish();
+//                }
+//            });
+//            View okView = eulaView.findViewById(R.id.ok);
+//            okView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    mRootContentView.removeView(eulaView);
+//                    SharedPreferences.Editor editor = prefs.edit();
+//                    editor.putBoolean(Util.PREFKEY_EULA, true);
+//                    editor.apply();
+//                    enableMenu(true);
+//
+//                    if (prefs.getBoolean(Util.PREFKEY_AUTOCONNECT, true)) {
+//                        Util.startWiFiService(MainActivity.this);
+//                    }
+//                }
+//            });
+//
+//            RelativeLayout.LayoutParams eulaParams =
+//                    new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+//            mRootContentView.addView(eulaView, eulaParams);
+//
+//        } else if (prefs.getBoolean(Util.PREFKEY_AUTOCONNECT, true)) {
+//            Util.startWiFiService(this);
+//        }
 
         prefs.edit().putString(Util.PREFKEY_MAPRESOURCESPATH, mMapStorageDirName).apply();
     }
