@@ -42,6 +42,7 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_weight="1"
+            android:backgroundTint="#fff"
             app:srcCompat="@drawable/gallery" />
 
         <ImageView

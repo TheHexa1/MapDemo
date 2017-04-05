@@ -2,129 +2,129 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootContentView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_img"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".AboutActivity"
-    tools:showIn="@layout/activity_about"
-    android:orientation="vertical"
-    android:id="@+id/rootContentView">
+    tools:showIn="@layout/activity_about">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="@dimen/header_cardview_elevation"
-        app:cardMaxElevation="@dimen/header_cardview_elevation"
-        android:focusable="true"
-        app:cardCornerRadius="0dp"
-        app:cardBackgroundColor="@color/colorTranslucentBackground"
         android:layout_marginLeft="@dimen/cardview_compensation_padding_sides"
         android:layout_marginRight="@dimen/cardview_compensation_padding_sides"
-        android:layout_marginTop="@dimen/cardview_compensation_padding_top_bottom">
+        android:layout_marginTop="@dimen/cardview_compensation_padding_top_bottom"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/colorTranslucentBackground"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="@dimen/header_cardview_elevation"
+        app:cardMaxElevation="@dimen/header_cardview_elevation">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/titleTextView"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/about_town"
-                android:gravity="center_horizontal"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentRight="true"
-                android:id="@+id/titleTextView" />
+                android:layout_alignParentTop="true"
+                android:gravity="center_horizontal"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:text="@string/about_town"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
             <ImageView
+                android:id="@+id/previousIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/previousIcon"
-                android:src="@drawable/ic_menu_back"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:contentDescription="@string/previous_chapter"
                 android:padding="@dimen/view_margin_size"
+                android:src="@drawable/ic_menu_back"
                 android:visibility="invisible" />
 
             <ImageView
+                android:id="@+id/nextIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/nextIcon"
-                android:src="@drawable/ic_menu_forward"
-                android:contentDescription="@string/next_chapter"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:contentDescription="@string/next_chapter"
                 android:padding="@dimen/view_margin_size"
+                android:src="@drawable/ic_menu_forward"
                 android:visibility="invisible" />
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
 
     <ScrollView
+        android:id="@+id/contentScroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:id="@+id/contentScroll"
         android:visibility="visible">
 
         <TextView
+            android:id="@+id/contentTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/about_town_text"
-            android:id="@+id/contentTextView"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:paddingBottom="@dimen/activity_vertical_margin"
             android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingBottom="@dimen/activity_vertical_margin" />
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:text="@string/about_town_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
     </ScrollView>
 
     <WebView
+        android:id="@+id/skobblerAttrib"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/skobblerAttrib"
-        android:visibility="gone"
-        android:layout_weight="3" />
+        android:layout_weight="3"
+        android:visibility="gone" />
 
     <android.support.v7.widget.CardView
+        android:id="@+id/legalCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="@dimen/header_cardview_elevation"
-        app:cardMaxElevation="@dimen/header_cardview_elevation"
+        android:layout_marginBottom="@dimen/cardview_compensation_padding_top_bottom"
 
-        android:focusable="true"
-        android:id="@+id/legalCard"
-        android:visibility="gone"
-        android:clickable="true"
-        app:cardCornerRadius="0dp"
-        app:cardBackgroundColor="@color/colorTranslucentBackground"
         android:layout_marginLeft="@dimen/cardview_compensation_padding_sides"
         android:layout_marginRight="@dimen/cardview_compensation_padding_sides"
-        android:layout_marginBottom="@dimen/cardview_compensation_padding_top_bottom">
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        app:cardBackgroundColor="@color/colorTranslucentBackground"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="@dimen/header_cardview_elevation"
+        app:cardMaxElevation="@dimen/header_cardview_elevation">
 
         <TextView
+            android:id="@+id/legalText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/maps_by_scout"
-            android:id="@+id/legalText"
-            android:gravity="center_vertical|center_horizontal"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button"
-            android:textColor="@color/colorButtonText"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:background="@android:color/transparent"
             android:clickable="false"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            android:background="@android:color/transparent" />
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/maps_by_scout"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textColor="@color/colorButtonText" />
 
     </android.support.v7.widget.CardView>
-
 
 
 </LinearLayout>

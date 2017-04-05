@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,11 +39,20 @@ public class HomeActivity extends MenuHandlerActivity {
             }
         });
 
+        (findViewById(R.id.iv_help)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                menuStartAboutActivity(AboutActivity.ABOUT_APP);
+            }
+        });
+
         final SharedPreferences prefs = getSharedPreferences(Util.SHARED_PREFERENCES_KEY, MODE_PRIVATE);
 
         if (!prefs.contains(Util.PREFKEY_EULA)) {
             enableMenu(false);
             final View eulaView = getLayoutInflater().inflate(R.layout.eula, mRootContentView, false);
+            TextView tv_eula = (TextView) eulaView.findViewById(R.id.tv_eula);
+            tv_eula.setMovementMethod(LinkMovementMethod.getInstance());
             View cancelView = eulaView.findViewById(R.id.cancel);
             cancelView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -74,12 +84,12 @@ public class HomeActivity extends MenuHandlerActivity {
             Util.startWiFiService(this);
         }
 
-//        SpannableString spannableString = new SpannableString("Lorem");
+//        SpannableString spannableString = new SpannableString("Lorem     ");
 //        Drawable d = getResources().getDrawable(R.drawable.map);
 //        d.setBounds(0, 0, 50, 50);
 //        ImageSpan span = new ImageSpan(d, ImageSpan.ALIGN_BOTTOM);
 ////        ImageSpan span = new ImageSpan(this,R.drawable.map);
-//        spannableString.setSpan(span, 5,  5+10, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+//        spannableString.setSpan(span, 5,  5+1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
 //        ((TextView)findViewById(R.id.tv_test)).setText(spannableString);
 
     }

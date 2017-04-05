@@ -58,6 +58,69 @@
         \n
         Cyrano
     </item>
+    
+    <!--<item name="about_app_text_0" format="string" type="string">-->
+        <!--Welcome to beautiful Oak Glen, California and thank you for your purchase of the “Oak Glen-->
+        <!--Discovery eAdventure”. A fun and adventurous way to discover “The Glen”.\n-->
+        <!--\n-->
+        <!--\n-->
+        <!--<b>Start your Journey:</b>\n-->
+        <!--Your adventure begins when you either “tap”-->
+    <!--</item>-->
+    <!---->
+    <!--<item name="about_app_text_1" format="string" type="string">-->
+        <!--on@ @-->
+    <!--</item>-->
+    <!--<item name="about_app_text_2" format="string" type="string">-->
+        <!--or@ @-->
+    <!--</item>-->
+
+    <!--<item name="about_app_text_3" format="string" type="string">-->
+        <!--\n-->
+        <!--By tapping on the@ @-->
+    <!--</item>-->
+
+    <!--<item name="about_app_text_4" format="string" type="string">-->
+        <!--a map will be displayed with your current location and “pins” that-->
+        <!--represent the locations of the hidden photo items. Tap on a pin and follow the map to the-->
+        <!--selected location.\n-->
+        <!--\n-->
+    <!--</item>-->
+
+    <!--<item name="about_app_text_5" format="string" type="string">-->
+        <!--If you should choose the@ @-->
+    <!--</item>-->
+
+    <!--<item name="about_app_text_6" format="string" type="string">-->
+        <!--a gallery of photographs will be displayed. Tap on a photo-->
+        <!--and the map will launch with guidance to the location of the selected item.\n-->
+        <!--\n-->
+    <!--</item>-->
+    <!--<item name="about_app_text_7" format="string" type="string">-->
+        <!--<b>Reach your Destination:</b>\n-->
+        <!--When you reach a destination look for the “Pop-up” text on your device for educational-->
+        <!--information and fun facts about the destination object.\n-->
+        <!--\n-->
+        <!--At some destinations, the app will automatically stream fun and educational (location specific)-->
+        <!--content to your smart device.\n-->
+        <!--\n-->
+        <!--\n-->
+        <!--<b>Keep Score:</b>\n-->
+        <!--Once you reach a destination a “Red Apple” will appear in the corner of the photo on your-->
+        <!--device. A “Red Apple” will also be added to the Main Page of this app. Locate all the Photo-->
+        <!--destinations and you may receive a valuable bonus!\n-->
+        <!--\n-->
+        <!--\n-->
+        <!--<b>One important note:</b> As you travel to your chosen location the map on your device will-->
+        <!--display the shortest, straight line, route. <b>PLEASE STAY ON DESIGNATED PATHS AND-->
+        <!--ROADWAYS!</b> Though the “straight line” path may be tempting it is important that you respect-->
+        <!--the area through which you are trekking.\n-->
+        <!--\n-->
+        <!--\n-->
+        <!--“Happy Travels”,\n-->
+        <!--\n-->
+        <!--Cyrano\n-->
+    <!--</item>-->
 
 
 </resources>

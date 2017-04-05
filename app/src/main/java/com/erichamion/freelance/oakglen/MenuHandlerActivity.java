@@ -235,7 +235,7 @@ public abstract class MenuHandlerActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void menuStartAboutActivity(int aboutType) {
+    public void menuStartAboutActivity(int aboutType) {
         Intent intent = new Intent(this, AboutActivity.class);
         intent.putExtra(AboutActivity.ABOUT_TYPE_KEY, aboutType);
         addBackgroundExtras(intent);
