@@ -12,17 +12,17 @@ import java.util.Locale;
 /**
  * RecyclerView.ViewHolder for holding Chapter summary views within a table of contents.
  *
- * Created by Eric Ray on 7/14/2016.
+ * Created by Vivek Solanki on 4/06/2017.
  */
 public class ChapterViewHolder extends BaseViewHolder {
     // textView1 is Chapter Number
     // textView2 is Chapter Title
-    private final TextView chapterNumberView;
+//    private final TextView chapterNumberView;
     private final TextView chapterTitleView;
 
     public ChapterViewHolder(View itemView) {
         super(itemView);
-        chapterNumberView = textView1;
+//        chapterNumberView = textView1;
         chapterTitleView = textView2;
     }
 
@@ -50,9 +50,9 @@ public class ChapterViewHolder extends BaseViewHolder {
         // Do nothing
     }
 
-    public void setFormattedChapterIndex(int chapterIndex) {
-        chapterNumberView.setText(String.format(Locale.US, "Chapter %d", chapterIndex + 1));
-    }
+//    public void setFormattedChapterIndex(int chapterIndex) {
+//        chapterNumberView.setText(String.format(Locale.US, "Chapter %d", chapterIndex + 1));
+//    }
 
     public void setChapterTitle(String title) {
         chapterTitleView.setText(title);

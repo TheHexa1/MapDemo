@@ -1,5 +1,7 @@
 package com.erichamion.freelance.oakglen;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -8,6 +10,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
+import android.view.Menu;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ScrollView;
@@ -20,6 +23,7 @@ public class AboutActivity extends MenuHandlerActivity {
 
     private ScrollView mContentScroll;
     private WebView mSkobblerAttrib;
+    private int menuItemFlag = -1;// 1 = about oak glen, 0 = about this app
 
     private final View.OnClickListener mListener = new View.OnClickListener() {
         @Override
@@ -80,9 +84,10 @@ public class AboutActivity extends MenuHandlerActivity {
                 assert legalCard != null;
                 legalCard.setOnClickListener(mListener);
                 legalCard.setVisibility(View.VISIBLE);
+                menuItemFlag = 0;
 
-                mSkobblerAttrib = (WebView) findViewById(R.id.skobblerAttrib);
-                mSkobblerAttrib.loadUrl(getResources().getString(R.string.skobbler_attrib_url));
+//                mSkobblerAttrib = (WebView) findViewById(R.id.skobblerAttrib);
+//                mSkobblerAttrib.loadUrl(getResources().getString(R.string.skobbler_attrib_url));
 
                 break;
 
@@ -90,6 +95,7 @@ public class AboutActivity extends MenuHandlerActivity {
                 assert titleTextView != null;
                 titleTextView.setText(R.string.about_town);
                 contentTextView.setText(R.string.about_town_text);
+                menuItemFlag = 1;
                 break;
 
             default:
@@ -118,7 +124,8 @@ public class AboutActivity extends MenuHandlerActivity {
     public SpannableString getSpannableString(String val, int drawable){
         SpannableString spannableString = new SpannableString(val);
         Drawable d = getResources().getDrawable(drawable);
-        d.setBounds(0, 0, 50, 50);
+        d.setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_ATOP);
+        d.setBounds(0, 0, 80, 80);
         ImageSpan span = new ImageSpan(d, ImageSpan.ALIGN_BOTTOM);
 //        ImageSpan span = new ImageSpan(this,R.drawable.map);
         spannableString.setSpan(span, val.indexOf("@"), val.indexOf("@")+3, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
@@ -133,4 +140,17 @@ public class AboutActivity extends MenuHandlerActivity {
 ////        ImageSpan span = new ImageSpan(this,R.drawable.map);
 //        spannableString.setSpan(span, 5,  5+10, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
 //        ((TextView)findViewById(R.id.tv_test)).setText(spannableString);
+
+
+    @Override
+    protected void onCreateOptionsMenuEx(@SuppressWarnings("UnusedParameters") Menu menu) {
+        super.onCreateOptionsMenuEx(menu);
+
+        if(menuItemFlag == 0) {
+            menu.getItem(2).setVisible(false);
+        }else if(menuItemFlag == 1){
+            menu.getItem(1).setVisible(false);
+        }
+        invalidateOptionsMenu();
+    }
 }

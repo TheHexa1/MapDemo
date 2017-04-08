@@ -31,7 +31,7 @@ import java.util.List;
 
 public class MainActivity
         extends MenuHandlerActivity
-        implements BookContents.OnContentsAvailableListener, SKPrepareMapTextureListener {
+        implements BookContents.OnContentsAvailableListener{
 
     private static final String PREFKEY_TITLE_VISITED = "titleVisited";
 
@@ -138,15 +138,15 @@ public class MainActivity
                 (int) getResources().getDimension(R.dimen.thumbnail_height));
         chapterHolderView.setAdapter(mChapterHolderViewAdapter);
 
-        final SharedPreferences prefs = getSharedPreferences(Util.SHARED_PREFERENCES_KEY, MODE_PRIVATE);
-
-        mMapStorageDirName = prefs.getString(Util.PREFKEY_MAPRESOURCESPATH,
-                getEffectiveFilesDir().getPath() + "/" + "SKMaps/");
-        if (!new File(mMapStorageDirName).exists()) {
-            new SKPrepareMapTextureThread(this, mMapStorageDirName, "SKMaps.zip", this).start();
-        } else {
-            initMapLibraryAndEnableClicks();
-        }
+//        final SharedPreferences prefs = getSharedPreferences(Util.SHARED_PREFERENCES_KEY, MODE_PRIVATE);
+//
+//        mMapStorageDirName = prefs.getString(Util.PREFKEY_MAPRESOURCESPATH,
+//                getEffectiveFilesDir().getPath() + "/" + "SKMaps/");
+//        if (!new File(mMapStorageDirName).exists()) {
+//            new SKPrepareMapTextureThread(this, mMapStorageDirName, "SKMaps.zip", this).start();
+//        } else {
+//            initMapLibraryAndEnableClicks();
+//        }
 
 
 
@@ -184,7 +184,7 @@ public class MainActivity
 //            Util.startWiFiService(this);
 //        }
 
-        prefs.edit().putString(Util.PREFKEY_MAPRESOURCESPATH, mMapStorageDirName).apply();
+//        prefs.edit().putString(Util.PREFKEY_MAPRESOURCESPATH, mMapStorageDirName).apply();
     }
 
     private void setUpContents() {
@@ -203,10 +203,10 @@ public class MainActivity
         super.onStop();
     }
 
-    @Override
-    public void onMapTexturesPrepared(boolean b) {
-        initMapLibraryAndEnableClicks();
-    }
+//    @Override
+//    public void onMapTexturesPrepared(boolean b) {
+//        initMapLibraryAndEnableClicks();
+//    }
 
     @Override
     public void onContentsAvailable(BookContents contents) {
@@ -243,22 +243,22 @@ public class MainActivity
         mChapterHolderViewAdapter.setContents(contents);
     }
 
-    private File getEffectiveFilesDir() {
-        File filesDir = getExternalFilesDir(null);
-        if (filesDir == null) {
-            filesDir = getFilesDir();
-        }
-        return filesDir;
-    }
-
-    private void initMapLibraryAndEnableClicks() {
-        Util.initMapLibrary(this, mMapStorageDirName);
-
-        mIsMapLibraryInitialized = true;
-        mRootContentView.removeView(mOverlayView);
-        mOverlayView = null;
-        mChapterHolderViewAdapter.enableClicks();
-    }
+//    private File getEffectiveFilesDir() {
+//        File filesDir = getExternalFilesDir(null);
+//        if (filesDir == null) {
+//            filesDir = getFilesDir();
+//        }
+//        return filesDir;
+//    }
+//
+//    private void initMapLibraryAndEnableClicks() {
+//        Util.initMapLibrary(this, mMapStorageDirName);
+//
+//        mIsMapLibraryInitialized = true;
+//        mRootContentView.removeView(mOverlayView);
+//        mOverlayView = null;
+//        mChapterHolderViewAdapter.enableClicks();
+//    }
 
     public void launchMap() {
         // If permissions are already granted, map will launch.

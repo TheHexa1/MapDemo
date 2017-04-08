@@ -20,7 +20,7 @@ import com.erichamion.freelance.oakglen.bm.BitmapManager;
  * but not necessarily, support views that contain two TextViews and an ImageView, plus
  * optionally other views.
  *
- * Created by Eric Ray on 7/14/2016.
+ * Created by Vivek solanki on 7/4/2017.
  */
 public abstract class BaseViewHolder extends RecyclerView.ViewHolder implements BitmapManager.OnImageLoadCompleteListener {
     protected final ImageView imageView;
@@ -117,7 +117,7 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder implements 
 
     protected void onSetOnClickListener(@Nullable View.OnClickListener listener) {
         if (imageView != null) imageView.setOnClickListener(listener);
-        if (textView1 != null) textView1.setOnClickListener(listener);
+//        if (textView1 != null) textView1.setOnClickListener(listener);
         if (textView2 != null) textView2.setOnClickListener(listener);
     }
 

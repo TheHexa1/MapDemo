@@ -27,8 +27,10 @@ import com.erichamion.freelance.oakglen.map.MapHandler;
 import com.erichamion.freelance.oakglen.map.MapUiHandler;
 import com.skobbler.ngx.map.SKMapViewHolder;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
     private MapHandler mMapHandler;
@@ -39,6 +41,9 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
     private static final String KEY_TITLE = "title";
     private static final String KEY_VISITED_KEY = "visitedPrefkey";
     public static final int MAP_PERMS_REQUEST = R.id.permissionRequestMap & ((1 << 16) - 1);
+
+    Map<String, String> valid_qrcodes_map;
+    private String pop_up_msg = "";
 
     private String mVisitedPrefKey;
     private boolean mHasBeenVisited;
@@ -123,6 +128,66 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
         mMapView = (SKMapViewHolder) findViewById(R.id.view_group_map);
         assert mMapView != null;
         mMapHandler.init(densityRatio, extras.getDouble(KEY_LATITUDE), extras.getDouble(KEY_LONGITUDE), !mHasBeenVisited, mMapView);
+
+        //for pop-up text
+        try {
+
+            valid_qrcodes_map = new HashMap();
+
+            //        try { total 35 gps locations>>
+//            valid_qrcodes_map.put("{\"lat\":\"21.331767\",\"long\":\"-158.120217\"}","aloha");
+//            valid_qrcodes_map.put("{\"lat\":\"21.331317\",\"long\":\"-158.120217\"}","ana_puka");
+//            valid_qrcodes_map.put("{\"lat\":\"21.33085\",\"long\":\"-158.1224\"}","hao_hakahaka");
+//            valid_qrcodes_map.put("{\"lat\":\"21.332167\",\"long\":\"-158.12145\"}","honu");
+//            valid_qrcodes_map.put("{\"lat\":\"21.33325\",\"long\":\"-158.121083\"}","hooikaika_kino");
+//            valid_qrcodes_map.put("{\"lat\":\"21.332483\",\"long\":\"-158.1208\"}","i_a");
+//            valid_qrcodes_map.put("{\"lat\":\"21.331417\",\"long\":\"-158.120883\"}","la_au");
+//            valid_qrcodes_map.put("{\"lat\":\"21.332517\",\"long\":\"-158.121617\"}","lahalaha_wai");
+//            valid_qrcodes_map.put("{\"lat\":\"21.3326\",\"long\":\"-158.122083\"}","lomi");
+//            valid_qrcodes_map.put("{\"lat\":\"21.33215\",\"long\":\"-158.120883\"}","mea_pani");
+//            valid_qrcodes_map.put("{\"lat\":\"21.330667\",\"long\":\"-158.1223\"}","pahu");
+//            valid_qrcodes_map.put("{\"lat\":\"21.332133\",\"long\":\"-158.121833\"}","papa_hee_nalu");
+//            valid_qrcodes_map.put("{\"lat\":\"21.331917\",\"long\":\"-158.121817\"}","pele");
+//            valid_qrcodes_map.put("{\"lat\":\"21.3317\",\"long\":\"-158.121617\"}","pilikua_nui_wailele");
+
+            //            New gps cords
+            valid_qrcodes_map.put("{\"lat\":\"34.031616667\",\"long\":\"-116.943416667\"}","redcoats");
+            valid_qrcodes_map.put("{\"lat\":\"34.032483\",\"long\":\"-116.939667\"}","gents");
+            valid_qrcodes_map.put("{\"lat\":\"34.0332\",\"long\":\"-116.939266667\"}","bbq_wheel");
+            valid_qrcodes_map.put("{\"lat\":\"34.038383333\",\"long\":\"-116.935883333\"}","climbing_rocks_face");
+            valid_qrcodes_map.put("{\"lat\":\"34.051466667\",\"long\":\"-116.952533333\"}","squirrel_and_saw");
+            valid_qrcodes_map.put("{\"lat\":\"34.0385\",\"long\":\"-116.9371\"}","school_house");
+            valid_qrcodes_map.put("{\"lat\":\"34.051133333\",\"long\":\"-116.951566667\"}","feed_station");
+            valid_qrcodes_map.put("{\"lat\":\"34.040416667\",\"long\":\"-116.941233333\"}","concervency_sign");
+            valid_qrcodes_map.put("{\"lat\":\"34.041016667\",\"long\":\"-116.941366667\"}","wilsher_peak_mountian_siloette");
+            valid_qrcodes_map.put("{\"lat\":\"34.038966667\",\"long\":\"-116.9369\"}","tennis_court_net");
+
+            //gps cords without pop-up text
+            valid_qrcodes_map.put("{\"lat\":\"34.0406\",\"long\":\"-116.941783333\"}","-1"); //*
+            valid_qrcodes_map.put("{\"lat\":\"34.040067\",\"long\":\"-116.941067\"}","-1");
+            valid_qrcodes_map.put("{\"lat\":\"34.051367\",\"long\":\"-116.95305\"}","-1");
+            valid_qrcodes_map.put("{\"lat\":\"34.0327\",\"long\":\"-116.942967\"}","-1");
+            valid_qrcodes_map.put("{\"lat\":\"34.0331\",\"long\":\"-116.939266667\"}","-1");//*
+            valid_qrcodes_map.put("{\"lat\":\"34.038383\",\"long\":\"-116.93605\"}","-1");
+            valid_qrcodes_map.put("{\"lat\":\"34.038817\",\"long\":\"-116.937183\"}","-1");
+            valid_qrcodes_map.put("{\"lat\":\"34.04415\",\"long\":\"-116.947816667\"}","-1");//*
+            valid_qrcodes_map.put("{\"lat\":\"34.044416667\",\"long\":\"-116.94775\"}","-1");//*
+            valid_qrcodes_map.put("{\"lat\":\"34.045767\",\"long\":\"-116.94535\"}","-1");
+            valid_qrcodes_map.put("{\"lat\":\"34.052\",\"long\":\"-116.953889\"}","-1"); //oak glen//*
+            valid_qrcodes_map.put("{\"lat\":\"34.099717\",\"long\":\"-117.591167\"}","-1"); //newly added
+
+
+            for(String str : valid_qrcodes_map.keySet()) {
+
+                    if(!valid_qrcodes_map.get(str).equals("-1"))
+                        pop_up_msg = valid_qrcodes_map.get(str);
+                    else
+                        pop_up_msg = "You have reached your destination!";
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -404,12 +469,14 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
         prefs.edit().putBoolean(mVisitedPrefKey, true).apply();
 
         // Notify the user
-        new AlertDialog.Builder(this)
-                .setTitle("Congratulations")
-                .setMessage("You've reached the destination!")
-                .setIcon(mThumbnailId)
-                .setPositiveButton("OK", null)
-                .show();
+//        new AlertDialog.Builder(this)
+//                .setTitle("Congratulations")
+//                .setMessage("You've reached the destination!")
+//                .setIcon(mThumbnailId)
+//                .setPositiveButton("OK", null)
+//                .show();
+        String msg = Util.returnDestinationMsg(pop_up_msg, this);
+        Util.destinationPopUp(msg, this);
 
         // Don't continue checking whether the destination has been reached.
         return false;

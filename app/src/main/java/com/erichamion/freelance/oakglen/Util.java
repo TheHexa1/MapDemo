@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -275,6 +276,79 @@ public static List<String> getMissingPermissions(Context context, String... perm
             return true;
         } else {
             return false;
+        }
+    }
+
+    public static void destinationPopUp(String msg, Context context){
+
+        android.support.v7.app.AlertDialog.Builder alertDialog = new android.support.v7.app.AlertDialog.Builder(context);
+
+        // Setting Dialog Message
+        alertDialog.setMessage(msg);
+
+        // on pressing OK button
+        alertDialog.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        android.support.v7.app.AlertDialog alert = alertDialog.create();
+        alert.show(); //show alert message
+    }
+
+    public static String returnDestinationMsg(String destination_name, Context context){
+        switch(destination_name){
+            case "aloha":
+                return context.getString(R.string.aloha);
+            case "ana_puka":
+                return context.getString(R.string.ana_puka);
+            case "hao_hakahaka":
+                return context.getString(R.string.hao_hakahaka);
+            case "honu":
+                return context.getString(R.string.honu);
+            case "hooikaika_kino":
+                return context.getString(R.string.hooikaika_kino);
+            case "i_a":
+                return context.getString(R.string.i_a);
+            case "la_au":
+                return context.getString(R.string.la_au);
+            case "lahalaha_wai":
+                return context.getString(R.string.lahalaha_wai);
+            case "lomi":
+                return context.getString(R.string.lomi);
+            case "mea_pani":
+                return context.getString(R.string.mea_pani);
+            case "pahu":
+                return context.getString(R.string.pahu);
+            case "papa_hee_nalu":
+                return context.getString(R.string.papa_hee_nalu);
+            case "pele":
+                return context.getString(R.string.pele);
+            case "pilikua_nui_wailele":
+                return context.getString(R.string.pilikua_nui_wailele);
+            case "redcoats":
+                return context.getString(R.string.redcoats);
+            case "gents":
+                return context.getString(R.string.gents);
+            case "bbq_wheel":
+                return context.getString(R.string.bbq_wheel);
+            case "climbing_rocks_face":
+                return context.getString(R.string.climbing_rocks_face);
+            case "squirrel_and_saw":
+                return context.getString(R.string.squirrel_and_saw);
+            case "school_house":
+                return context.getString(R.string.school_house);
+            case "feed_station":
+                return context.getString(R.string.feed_station);
+            case "concervency_sign":
+                return context.getString(R.string.concervency_sign);
+            case "wilsher_peak_mountian_siloette":
+                return context.getString(R.string.wilsher_peak_mountian_siloette);
+            case "tennis_court_net":
+                return context.getString(R.string.tennis_court_net);
+            default:
+                return "You have reached your destination!";
         }
     }
 

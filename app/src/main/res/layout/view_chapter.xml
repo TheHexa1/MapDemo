@@ -47,7 +47,8 @@
             android:textSize="@dimen/chapter_preview_text_size"
             android:layout_weight="1"
             android:gravity="left|bottom"
-            android:paddingLeft="@dimen/chapter_preview_text_separation" />
+            android:paddingLeft="@dimen/chapter_preview_text_separation"
+            android:visibility="gone"/>
 
         <TextView
             android:layout_width="match_parent"

@@ -165,7 +165,7 @@ public class ContentsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 BookContents.Chapter chapter = mContents.getChapter(realPosition);
                 BookContents.Page firstPage = chapter.getPage(0);
                 chapterHolder.setImage(firstPage.imageId, firstPage.backgroundId, firstPage.scaleType, mThumbWidth, mThumbHeight);
-                chapterHolder.setFormattedChapterIndex(realPosition);
+//                chapterHolder.setFormattedChapterIndex(realPosition);
                 chapterHolder.setChapterTitle(chapter.getTitle());
                 break;
 

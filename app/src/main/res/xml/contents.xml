@@ -24,7 +24,7 @@
     </chapter>
     <chapter title="Los Rios Rancho">
         <page
-            img="@drawable/pageimg_02_01"
+            img="@drawable/pageimg_02_02"
             gravity="fitEnd"
             background="@drawable/background_blue_gradient"
             latitude="34.040416667"
