@@ -31,7 +31,7 @@ import java.util.List;
 
 public class MainActivity
         extends MenuHandlerActivity
-        implements BookContents.OnContentsAvailableListener{
+        implements BookContents.OnContentsAvailableListener {
 
     private static final String PREFKEY_TITLE_VISITED = "titleVisited";
 
@@ -185,6 +185,7 @@ public class MainActivity
 //        }
 
 //        prefs.edit().putString(Util.PREFKEY_MAPRESOURCESPATH, mMapStorageDirName).apply();
+        initMapLibraryAndEnableClicks();
     }
 
     private void setUpContents() {
@@ -250,15 +251,15 @@ public class MainActivity
 //        }
 //        return filesDir;
 //    }
-//
-//    private void initMapLibraryAndEnableClicks() {
+
+    private void initMapLibraryAndEnableClicks() {
 //        Util.initMapLibrary(this, mMapStorageDirName);
-//
-//        mIsMapLibraryInitialized = true;
-//        mRootContentView.removeView(mOverlayView);
-//        mOverlayView = null;
-//        mChapterHolderViewAdapter.enableClicks();
-//    }
+
+        mIsMapLibraryInitialized = true;
+        mRootContentView.removeView(mOverlayView);
+        mOverlayView = null;
+        mChapterHolderViewAdapter.enableClicks();
+    }
 
     public void launchMap() {
         // If permissions are already granted, map will launch.
