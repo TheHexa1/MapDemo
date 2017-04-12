@@ -27,6 +27,8 @@ import com.erichamion.freelance.oakglen.map.MapHandler;
 import com.erichamion.freelance.oakglen.map.MapUiHandler;
 import com.skobbler.ngx.map.SKMapViewHolder;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -59,6 +61,7 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
     private BitmapManager.ImageLoaderHandle mAdviceImageLoaderHandle;
     private String mAdviceImagePath;
     private @DrawableRes int mAdviceImageResId;
+    private String latLongArgs;
 
     @Nullable
     public static Intent launchMap(AppCompatActivity fromActivity, double latitude, double longitude, @NonNull String visitedPrefkey, @DrawableRes int thumbnailResId, String title) {
@@ -132,6 +135,9 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
         //for pop-up text
         try {
 
+            latLongArgs = "{\"lat\":\""+extras.getDouble(KEY_LATITUDE)+"\"" +
+                    ",\"long\":\""+extras.getDouble(KEY_LONGITUDE)+"\"}";
+
             valid_qrcodes_map = new HashMap();
 
             //        try { total 35 gps locations>>
@@ -179,11 +185,13 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
 
             for(String str : valid_qrcodes_map.keySet()) {
 
-                    if(!valid_qrcodes_map.get(str).equals("-1"))
+                if(str.equals(latLongArgs)) {
+                    if (!valid_qrcodes_map.get(str).equals("-1"))
                         pop_up_msg = valid_qrcodes_map.get(str);
                     else
                         pop_up_msg = "You have reached your destination!";
                     break;
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

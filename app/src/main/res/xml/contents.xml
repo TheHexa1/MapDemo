@@ -30,7 +30,7 @@
             latitude="34.040416667"
             longitude="-116.941233333" />
         <page
-            img="@drawable/pageimg_02_02"
+            img="@drawable/pageimg_02_01"
             gravity="centerCrop"
             latitude="34.0406"
             longitude="-116.941783333" />
