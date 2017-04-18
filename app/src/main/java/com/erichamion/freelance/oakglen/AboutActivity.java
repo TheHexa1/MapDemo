@@ -76,7 +76,7 @@ public class AboutActivity extends MenuHandlerActivity {
                 contentTextView.append(getSpannableString(getString(R.string.about_app_text_3), R.drawable.map));
                 contentTextView.append(" ");
                 contentTextView.append(getString(R.string.about_app_text_4));
-                contentTextView.append(getSpannableString(getString(R.string.about_app_text_5), R.drawable.map));
+                contentTextView.append(getSpannableString(getString(R.string.about_app_text_5), R.drawable.gallery));
                 contentTextView.append(" ");
                 contentTextView.append(getString(R.string.about_app_text_6)+getString(R.string.about_app_text_7));
 

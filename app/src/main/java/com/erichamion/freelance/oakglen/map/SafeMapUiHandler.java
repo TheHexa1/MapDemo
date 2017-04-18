@@ -10,7 +10,7 @@ import java.lang.ref.WeakReference;
 /**
  * Created by Eric Ray on 7/15/2016.
  */
-class SafeMapUiHandler implements MapUiHandler {
+public class SafeMapUiHandler implements MapUiHandler {
     private final WeakReference<MapUiHandler> mHandlerRef;
 
     public SafeMapUiHandler(@NonNull MapUiHandler handler) {

@@ -240,7 +240,11 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
     public void onBackPressed() {
         if (mMapHandler.tryExit(this)) {
             super.onBackPressed();
+        }else{
+            Intent i = new Intent(MapActivity.this, HomeActivity.class);
+            startActivity(i);
         }
+
     }
 
     @Override

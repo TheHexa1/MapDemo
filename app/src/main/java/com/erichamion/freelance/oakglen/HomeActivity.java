@@ -49,6 +49,14 @@ public class HomeActivity extends MenuHandlerActivity implements SKPrepareMapTex
             }
         });
 
+        (findViewById(R.id.iv_map)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeActivity.this,MapWithPinsActivity.class);
+                startActivity(i);
+            }
+        });
+
         (findViewById(R.id.iv_help)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
