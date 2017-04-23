@@ -182,6 +182,9 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
             valid_qrcodes_map.put("{\"lat\":\"34.052\",\"long\":\"-116.953889\"}","-1"); //oak glen//*
             valid_qrcodes_map.put("{\"lat\":\"34.099717\",\"long\":\"-117.591167\"}","-1"); //newly added
 
+            //home location for test purpose
+//            valid_qrcodes_map.put("{\"lat\":\"23.228138\",\"long\":\"72.632194\"}","tennis_court_net"); //newly added
+
 
             for(String str : valid_qrcodes_map.keySet()) {
 
@@ -240,10 +243,13 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
     public void onBackPressed() {
         if (mMapHandler.tryExit(this)) {
             super.onBackPressed();
-        }else{
-            Intent i = new Intent(MapActivity.this, HomeActivity.class);
-            startActivity(i);
+
+//            Intent i = new Intent(MapActivity.this, HomeActivity.class);
+//            startActivity(i);
         }
+//        else{
+//
+//        }
 
     }
 

@@ -89,6 +89,11 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
         SKLogging.writeLog("Init", "onPause - SKMaps initialization status=" + SKMaps.getInstance().isSKMapsInitialized(), SKLogging.LOG_DEBUG);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
     private void initMarkerLocations(){
 
         //location with names
@@ -116,6 +121,10 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
         skCoordinateMap.put(19,new SKCoordinate(-116.94535,34.045767));
         skCoordinateMap.put(20,new SKCoordinate(-116.953889,34.052)); //oak glen
         skCoordinateMap.put(21,new SKCoordinate(-117.591167,34.099717));
+
+        //test coordinates 23.261377, 72.616499.. 23.228138, 72.632194
+//        skCoordinateMap.put(0,new SKCoordinate(72.675048,23.227350));
+//        skCoordinateMap.put(1,new SKCoordinate(72.632194,23.228138));
     }
 
     //initialize maps
@@ -170,15 +179,17 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
             SKAnnotation annotationFromView = new SKAnnotation(i);
             annotationFromView.setLocation(skCoordinateMap.get(i));
             annotationFromView.setMininumZoomLevel(5);
-            SKAnnotationView annotationView = new SKAnnotationView();
-            RelativeLayout customView =
-                    (RelativeLayout) ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
-                            R.layout.custom_marker, null, false);
+//            SKAnnotationView annotationView = new SKAnnotationView();
+//            RelativeLayout customView =
+//                    (RelativeLayout) ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
+//                            R.layout.custom_marker, null, false);
             //  If width and height of the view  are not power of 2 the actual size of the image will be the next power of 2 of max(width,height).
 
 //        annotationView.setView(findViewById(R.id.customMarker));
-            annotationView.setView(customView);
-            annotationFromView.setAnnotationView(annotationView);
+//            annotationView.setView(customView);
+            // set the annotation's type
+            annotationFromView.setAnnotationType(SKAnnotation.SK_ANNOTATION_TYPE_RED);
+//            annotationFromView.setAnnotationView(annotationView);
             mapView.addAnnotation(annotationFromView, SKAnimationSettings.ANIMATION_POP_OUT);
         }
 
@@ -233,7 +244,7 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
             mapView.setPositionAsCurrent(skPosition.getCoordinate(), 0, true);
         }
 
-//        mapView.setPositionAsCurrent(new SKCoordinate(curr_latitude, curr_longitude), 0, true);
+//        mapView.setPositionAsCurrent(new SKCoordinate(-116.953889, 34.052), 0, true);
 
         prepareAnnotations();
     }
@@ -455,7 +466,7 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
 //                dialog.cancel();
                 mMapIntent = MapActivity.launchMap(MapWithPinsActivity.this,
                         skCoordinateMap.get(marker_id).getLatitude(),
-                        skCoordinateMap.get(marker_id).getLatitude(),
+                        skCoordinateMap.get(marker_id).getLongitude(),
                         "", R.drawable.cover_image_thumbnail, getString(R.string.app_name));
 //                startActivity(mMapIntent);
             }

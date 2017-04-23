@@ -9,6 +9,6 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_centerInParent="true"
-        android:src="@drawable/bw_marker" />
+        android:src="@drawable/bw_apple" />
 
 </RelativeLayout>

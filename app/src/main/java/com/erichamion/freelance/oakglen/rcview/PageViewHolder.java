@@ -25,7 +25,7 @@ public class PageViewHolder extends BaseViewHolder {
     //textView1 is Latitude
     //textView2 is Longitude
 
-    private RatingBar visitedIndicator;
+    private ImageView visitedIndicator;
     private boolean mLoadingCancelled = false;
     private int mResId = 0;
     private int mBackgroundId = 0;
@@ -35,7 +35,7 @@ public class PageViewHolder extends BaseViewHolder {
 
     public PageViewHolder(View itemView) {
         super(itemView);
-        visitedIndicator = (RatingBar) itemView.findViewById(R.id.visitedIndicator);
+        visitedIndicator = (ImageView) itemView.findViewById(R.id.visitedIndicator);
         Util.setRatingBarToAccentColor(visitedIndicator, visitedIndicator.getContext().getTheme());
     }
 
