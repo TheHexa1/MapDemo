@@ -24,6 +24,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 
 import com.erichamion.freelance.oakglen.bm.BitmapManager;
@@ -175,30 +176,35 @@ public class Util {
         void onLayoutChange(View v);
     }
 
-    public static void setRatingBarToAccentColor(@NonNull RatingBar ratingBar, @Nullable Resources.Theme theme) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) return;
+//    public static void setRatingBarToAccentColor(@NonNull RatingBar ratingBar, @Nullable Resources.Theme theme) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) return;
+//
+//        int accentColor = ResourcesCompat.getColor(ratingBar.getResources(), R.color.colorAccent, theme);
+//
+//        Drawable drawable = ratingBar.getProgressDrawable();
+//        LayerDrawable layerDrawable;
+//        if (drawable instanceof LayerDrawable) {
+//            layerDrawable = (LayerDrawable) drawable;
+//        } else if (drawable instanceof DrawableWrapper) {
+//            // I don't believe this cast should fail
+//            layerDrawable = (LayerDrawable) ((DrawableWrapper) drawable).getWrappedDrawable();
+//        } else {
+//            // This shouldn't happen. If it does, we'll throw a NullPointerException
+//            // a few lines down, so we'll know it needs fixed.
+//            layerDrawable = null;
+//        }
+//
+//        // layerDrawable.getDrawable(0) is empty star background, leave it alone.
+//        // layerDrawable.getDrawable(1) is partial star background
+//        // layerDrawable.getDrawable(2) is filled star background
+//        assert layerDrawable != null;
+//        DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(1)), accentColor);
+//        DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(2)), accentColor);
+//    }
 
-        int accentColor = ResourcesCompat.getColor(ratingBar.getResources(), R.color.colorAccent, theme);
+    public static void setRatingBarToColoredImage(@NonNull ImageView visitedIndicator) {
 
-        Drawable drawable = ratingBar.getProgressDrawable();
-        LayerDrawable layerDrawable;
-        if (drawable instanceof LayerDrawable) {
-            layerDrawable = (LayerDrawable) drawable;
-        } else if (drawable instanceof DrawableWrapper) {
-            // I don't believe this cast should fail
-            layerDrawable = (LayerDrawable) ((DrawableWrapper) drawable).getWrappedDrawable();
-        } else {
-            // This shouldn't happen. If it does, we'll throw a NullPointerException
-            // a few lines down, so we'll know it needs fixed.
-            layerDrawable = null;
-        }
-
-        // layerDrawable.getDrawable(0) is empty star background, leave it alone.
-        // layerDrawable.getDrawable(1) is partial star background
-        // layerDrawable.getDrawable(2) is filled star background
-        assert layerDrawable != null;
-        DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(1)), accentColor);
-        DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(2)), accentColor);
+        visitedIndicator.setImageResource(R.drawable.colored_apple);
     }
 
 

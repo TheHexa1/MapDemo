@@ -154,7 +154,7 @@ public class ContentsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 final TitleViewHolder titleHolder = (TitleViewHolder) holder;
                 if (mContents != null) {
                     titleHolder.setCoords(mContents.getLatitude(), mContents.getLongitude());
-                    titleHolder.setNumLocations(mNumLocations);
+//                    titleHolder.setNumLocations(mNumLocations); //////////////////////*****
                     titleHolder.setNumVisitedLocations(mVisitedLocations);
                 }
                 break;

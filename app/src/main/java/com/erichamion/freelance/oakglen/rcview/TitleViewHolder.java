@@ -21,7 +21,8 @@ import com.erichamion.freelance.oakglen.Util;
 public class TitleViewHolder extends BaseViewHolder {
     private final AdjustingTextView subtitleView;
     private final AdjustingTextView titleView;
-    private final RatingBar visitedLocationsIndicator;
+//    private final ImageView visitedLocationsIndicator;
+    View itemView;
 
 
     //textView1 is latitude
@@ -29,10 +30,11 @@ public class TitleViewHolder extends BaseViewHolder {
 
     public TitleViewHolder(View itemView) {
         super(itemView);
+        this.itemView = itemView;
         subtitleView = (AdjustingTextView) itemView.findViewById(R.id.subtitleText);
         titleView = (AdjustingTextView) itemView.findViewById(R.id.titleText);
-        visitedLocationsIndicator = (RatingBar) itemView.findViewById(R.id.visitedLocationsIndicator);
-        Util.setRatingBarToAccentColor(visitedLocationsIndicator, visitedLocationsIndicator.getContext().getTheme());
+//        visitedLocationsIndicator = (ImageView) itemView.findViewById(R.id.visitedLocationsIndicator);
+//        Util.setRatingBarToColoredImage(visitedLocationsIndicator);
     }
 
     @Override
@@ -76,11 +78,22 @@ public class TitleViewHolder extends BaseViewHolder {
     }
 
     public void setNumLocations(int numLocations) {
-        visitedLocationsIndicator.setNumStars(numLocations);
+//        visitedLocationsIndicator.setNumStars(numLocations);
     }
 
-    public void setNumVisitedLocations(int visitedLocations) {
-        visitedLocationsIndicator.setRating(visitedLocations);
+    public void setNumVisitedLocations(int visitedCount) {
+//        visitedLocationsIndicator.setRating(visitedLocations);
+        int indicator_apples[] = {
+                R.id.indicator_apple_1,R.id.indicator_apple_2,R.id.indicator_apple_3,
+                R.id.indicator_apple_4,R.id.indicator_apple_5,R.id.indicator_apple_6,
+                R.id.indicator_apple_7,R.id.indicator_apple_8,R.id.indicator_apple_9,
+                R.id.indicator_apple_10,R.id.indicator_apple_11,R.id.indicator_apple_12,
+                R.id.indicator_apple_13,R.id.indicator_apple_14,R.id.indicator_apple_15,
+        };
+
+        for(int i=0; i<visitedCount; i++){
+            ((ImageView)itemView.findViewById(indicator_apples[i])).setImageResource(R.drawable.colored_apple);
+        }
     }
 
     public void onClear() {

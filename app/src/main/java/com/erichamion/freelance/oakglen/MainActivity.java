@@ -17,6 +17,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
@@ -232,11 +233,13 @@ public class MainActivity
             assert longTextView != null;
             longTextView.setText(latLong.second);
             Pair<Integer, Integer> totalAndVisitedLocations = this.countVisitedLocations(contents);
-            AppCompatRatingBar visitedLocationsIndicator = (AppCompatRatingBar) mTitleViewHolder.findViewById(R.id.visitedLocationsIndicator);
-            assert visitedLocationsIndicator != null;
-            visitedLocationsIndicator.setNumStars(totalAndVisitedLocations.first);
-            visitedLocationsIndicator.setRating(totalAndVisitedLocations.second);
-            Util.setRatingBarToAccentColor(visitedLocationsIndicator, getTheme());
+            displayVisitedLocations(totalAndVisitedLocations.second);
+//            AppCompatRatingBar visitedLocationsIndicator = (AppCompatRatingBar) mTitleViewHolder.findViewById(R.id.visitedLocationsIndicator);
+//            assert visitedLocationsIndicator != null;
+//            visitedLocationsIndicator.setNumStars(totalAndVisitedLocations.first);
+//            visitedLocationsIndicator.setRating(totalAndVisitedLocations.second);
+//            Util.setRatingBarToAccentColor(visitedLocationsIndicator, getTheme());
+
         }
 
 
@@ -281,6 +284,21 @@ public class MainActivity
 
         return false;
 
+    }
+
+    public void displayVisitedLocations(int visitedCount){
+
+        int indicator_apples[] = {
+                R.id.indicator_apple_1,R.id.indicator_apple_2,R.id.indicator_apple_3,
+                R.id.indicator_apple_4,R.id.indicator_apple_5,R.id.indicator_apple_6,
+                R.id.indicator_apple_7,R.id.indicator_apple_8,R.id.indicator_apple_9,
+                R.id.indicator_apple_10,R.id.indicator_apple_11,R.id.indicator_apple_12,
+                R.id.indicator_apple_13,R.id.indicator_apple_14,R.id.indicator_apple_15,
+        };
+
+        for(int i=0; i<visitedCount; i++){
+            ((ImageView)findViewById(indicator_apples[i])).setImageResource(R.drawable.colored_apple);
+        }
     }
 
 }

@@ -88,14 +88,61 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:layout_marginTop="@dimen/view_margin_size" />
 
-                <RatingBar
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <LinearLayout
                     android:id="@+id/answerOverallRating"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_below="@+id/question"
-                    android:indeterminateOnly="false"
-                    android:layout_centerHorizontal="true"
-                    android:layout_margin="@dimen/view_margin_size" />
+                    android:layout_marginTop="@dimen/view_margin_size"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/apple_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="false"
+                        android:layout_weight="1"
+                        android:indeterminateOnly="false"
+                        android:src="@drawable/bw_apple" />
+
+                    <ImageView
+                        android:id="@+id/apple_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="false"
+                        android:layout_weight="1"
+                        android:indeterminateOnly="false"
+                        android:src="@drawable/bw_apple" />
+
+                    <ImageView
+                        android:id="@+id/apple_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="false"
+                        android:layout_weight="1"
+                        android:indeterminateOnly="false"
+                        android:src="@drawable/bw_apple" />
+
+                    <ImageView
+                        android:id="@+id/apple_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="false"
+                        android:layout_weight="1"
+                        android:indeterminateOnly="false"
+                        android:src="@drawable/bw_apple" />
+
+                    <ImageView
+                        android:id="@+id/apple_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="false"
+                        android:layout_weight="1"
+                        android:indeterminateOnly="false"
+                        android:src="@drawable/bw_apple" />
+                </LinearLayout>
+
             </RelativeLayout>
 
             <RelativeLayout

@@ -36,7 +36,7 @@ public class PageViewHolder extends BaseViewHolder {
     public PageViewHolder(View itemView) {
         super(itemView);
         visitedIndicator = (ImageView) itemView.findViewById(R.id.visitedIndicator);
-        Util.setRatingBarToAccentColor(visitedIndicator, visitedIndicator.getContext().getTheme());
+        Util.setRatingBarToColoredImage(visitedIndicator);
     }
 
     @Override
@@ -118,12 +118,18 @@ public class PageViewHolder extends BaseViewHolder {
     }
 
     public void setIsVisited(boolean isVisited) {
-        visitedIndicator.setRating(isVisited ? 1.0f : 0.0f);
+//        visitedIndicator.setRating(isVisited ? 1.0f : 0.0f);
+        if(isVisited){
+            visitedIndicator.setImageResource(R.drawable.colored_apple);
+        }
+        else{
+            visitedIndicator.setImageResource(R.drawable.bw_apple);
+        }
     }
 
-    public boolean isVisited() {
-        return visitedIndicator.getRating() > 0.5;
-    }
+//    public boolean isVisited() {
+//        return visitedIndicator.getRating() > 0.5;
+//    }
 
     public double getLatitude() {
         return mLatitude;

@@ -21,64 +21,185 @@
         android:layout_alignParentRight="true" />
 
     <com.erichamion.freelance.oakglen.AdjustingTextView
+        android:id="@+id/titleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-        android:textAllCaps="true"
-        app:targetWidthPercent="75"
-        app:useFastCalculation="true"
-        android:text="@string/main_title"
-        android:gravity="center"
-        android:layout_marginBottom="@dimen/title_padding_bottom"
-        android:textColor="@android:color/primary_text_light"
-        android:id="@+id/titleText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/subtitleText" />
-
-    <android.support.v7.widget.AppCompatRatingBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/visitedLocationsIndicator"
-        android:layout_above="@+id/latLongHolder"
-        android:numStars="1"
-        android:stepSize="1.0"
-        style="@style/Widget.AppCompat.RatingBar.Small"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/subtitleText"
+        android:gravity="center"
+        android:text="@string/main_title"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="@android:color/primary_text_light"
+        app:targetWidthPercent="75"
+        app:useFastCalculation="true" />
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:id="@+id/ll_visited_locations"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@+id/titleText"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/indicator_apple_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+
+        <ImageView
+            android:id="@+id/indicator_apple_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+
+        <ImageView
+            android:id="@+id/indicator_apple_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+
+        <ImageView
+            android:id="@+id/indicator_apple_4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+
+        <ImageView
+            android:id="@+id/indicator_apple_5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+
+        <ImageView
+            android:id="@+id/indicator_apple_6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+
+        <ImageView
+            android:id="@+id/indicator_apple_7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+
+        <ImageView
+            android:id="@+id/indicator_apple_8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+
+        <ImageView
+            android:id="@+id/indicator_apple_9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+
+        <ImageView
+            android:id="@+id/indicator_apple_10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+
+        <ImageView
+            android:id="@+id/indicator_apple_11"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+
+        <ImageView
+            android:id="@+id/indicator_apple_12"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+
+        <ImageView
+            android:id="@+id/indicator_apple_13"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+
+        <ImageView
+            android:id="@+id/indicator_apple_14"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+
+        <ImageView
+            android:id="@+id/indicator_apple_15"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bw_apple" />
+    </LinearLayout>
+
+    <!--<android.support.v7.widget.AppCompatRatingBar-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/visitedLocationsIndicator"-->
+        <!--android:layout_above="@+id/latLongHolder"-->
+        <!--android:numStars="1"-->
+        <!--android:stepSize="1.0"-->
+        <!--style="@style/Widget.AppCompat.RatingBar.Small"-->
+        <!--android:layout_centerHorizontal="true" />-->
+
+    <LinearLayout
+        android:id="@+id/latLongHolder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/view_margin_size"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="false"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/titleText"
-        android:id="@+id/latLongHolder">
+        android:layout_below="@+id/ll_visited_locations"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/view_margin_size">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:id="@+id/latText"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:ellipsize="marquee"
-            android:singleLine="true"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_halfmargin" />
-
-        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:id="@+id/longText"
             android:layout_weight="1"
-            android:gravity="center_horizontal"
             android:ellipsize="marquee"
+            android:gravity="center_horizontal"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_halfmargin"
             android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+        <TextView
+            android:id="@+id/longText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="marquee"
+            android:gravity="center_horizontal"
             android:paddingLeft="@dimen/activity_horizontal_halfmargin"
-            android:paddingRight="@dimen/activity_horizontal_margin" />
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
     </LinearLayout>
 </RelativeLayout>
