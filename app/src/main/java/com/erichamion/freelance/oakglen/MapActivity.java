@@ -1,6 +1,7 @@
 package com.erichamion.freelance.oakglen;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -62,6 +63,7 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
     private String mAdviceImagePath;
     private @DrawableRes int mAdviceImageResId;
     private String latLongArgs;
+    boolean isFromMapWithPinActivity = false;
 
     @Nullable
     public static Intent launchMap(AppCompatActivity fromActivity, double latitude, double longitude, @NonNull String visitedPrefkey, @DrawableRes int thumbnailResId, String title) {
@@ -71,6 +73,12 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
         intent.putExtra(KEY_THUMB, thumbnailResId);
         intent.putExtra(KEY_TITLE, title);
         intent.putExtra(KEY_VISITED_KEY, visitedPrefkey);
+
+        if(fromActivity.getClass().getName().equals(MapWithPinsActivity.class.getName())) {
+            intent.putExtra("from_activity", "MapWithPinsActivity");
+        }else{
+            intent.putExtra("from_activity", "");
+        }
 
         List<String> missingPerms = Util.getMissingPermissions(fromActivity, Manifest.permission.ACCESS_WIFI_STATE,
         Manifest.permission.INTERNET, Manifest.permission.ACCESS_FINE_LOCATION,
@@ -103,6 +111,11 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
         //noinspection ConstantConditions
         getSupportActionBar().setTitle(extras.getString(KEY_TITLE, "Untitled Map"));
         mVisitedPrefKey = extras.getString(KEY_VISITED_KEY);
+
+        if(extras.getString("from_activity").equals("MapWithPinsActivity")){
+            isFromMapWithPinActivity = true;
+        }
+
         mHasBeenVisited = getSharedPreferences(Util.SHARED_PREFERENCES_KEY, MODE_PRIVATE)
                 .getBoolean(mVisitedPrefKey, false);
         mThumbnailId = extras.getInt(KEY_THUMB);
@@ -241,15 +254,13 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
 
     @Override
     public void onBackPressed() {
-        if (mMapHandler.tryExit(this)) {
-            super.onBackPressed();
 
-//            Intent i = new Intent(MapActivity.this, HomeActivity.class);
-//            startActivity(i);
+        if(isFromMapWithPinActivity){
+            Intent i = new Intent(MapActivity.this, MapWithPinsActivity.class);
+            startActivity(i);
+        } else if (mMapHandler.tryExit(this)) {
+            super.onBackPressed();
         }
-//        else{
-//
-//        }
 
     }
 

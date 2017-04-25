@@ -91,7 +91,8 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        Intent i = new Intent(this, HomeActivity.class);
+        startActivity(i);
     }
 
     private void initMarkerLocations(){
