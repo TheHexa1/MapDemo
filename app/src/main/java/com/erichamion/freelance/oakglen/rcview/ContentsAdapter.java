@@ -49,9 +49,9 @@ public class ContentsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         if (mHasTitle) {
             MainActivity activity = getActivity();
             if (contents != null && activity != null) {
-                Pair<Integer, Integer> totalAndVisitedLocations = getActivity().countVisitedLocations(contents);
-                mNumLocations = totalAndVisitedLocations.first;
-                mVisitedLocations = totalAndVisitedLocations.second;
+//                Pair<Integer, Integer> totalAndVisitedLocations = getActivity().countVisitedLocations(contents);
+//                mNumLocations = totalAndVisitedLocations.first;
+//                mVisitedLocations = totalAndVisitedLocations.second;
             }
             notifyItemChanged(0);
         }
@@ -155,7 +155,7 @@ public class ContentsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 if (mContents != null) {
                     titleHolder.setCoords(mContents.getLatitude(), mContents.getLongitude());
 //                    titleHolder.setNumLocations(mNumLocations); //////////////////////*****
-                    titleHolder.setNumVisitedLocations(mVisitedLocations);
+//                    titleHolder.setNumVisitedLocations(mVisitedLocations);
                 }
                 break;
 

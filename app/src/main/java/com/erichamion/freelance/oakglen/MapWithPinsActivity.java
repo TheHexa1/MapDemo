@@ -98,33 +98,33 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
     private void initMarkerLocations(){
 
         //location with names
-        skCoordinateMap.put(0,new SKCoordinate(-116.943416667,34.031616667));
-        skCoordinateMap.put(1,new SKCoordinate(-116.939667,34.032483));
-        skCoordinateMap.put(2,new SKCoordinate(-116.939266667,34.0332));
-        skCoordinateMap.put(3,new SKCoordinate(-116.935883333,34.038383333));
-        skCoordinateMap.put(4,new SKCoordinate(-116.952533333,34.051466667));
-        skCoordinateMap.put(5,new SKCoordinate(-116.9371,34.0385));
-        skCoordinateMap.put(6,new SKCoordinate(-116.951566667,34.051133333));
-        skCoordinateMap.put(7,new SKCoordinate(-116.941233333,34.040416667));
-        skCoordinateMap.put(8,new SKCoordinate(-116.941366667,34.041016667));
-        skCoordinateMap.put(9,new SKCoordinate(-116.9369,34.038966667));
+        skCoordinateMap.put(0,new SKCoordinate(-116.943416667,34.031616667));//
+        skCoordinateMap.put(1,new SKCoordinate(-116.939667,34.032483));//
+        skCoordinateMap.put(2,new SKCoordinate(-116.939266667,34.0332));//
+        skCoordinateMap.put(3,new SKCoordinate(-116.935883333,34.038383333));//
+        skCoordinateMap.put(4,new SKCoordinate(-116.952533333,34.051466667));//
+        skCoordinateMap.put(5,new SKCoordinate(-116.9371,34.0385));//
+        skCoordinateMap.put(6,new SKCoordinate(-116.951566667,34.051133333));//
+        skCoordinateMap.put(7,new SKCoordinate(-116.941233333,34.040416667));//
+        skCoordinateMap.put(8,new SKCoordinate(-116.941366667,34.041016667));//
+        skCoordinateMap.put(9,new SKCoordinate(-116.9369,34.038966667));//
 
         //location without names
-        skCoordinateMap.put(10,new SKCoordinate(-116.941783333,34.0406));
-        skCoordinateMap.put(11,new SKCoordinate(-116.941067,34.040067));
-        skCoordinateMap.put(12,new SKCoordinate(-116.95305,34.051367));
-        skCoordinateMap.put(13,new SKCoordinate(-116.942967,34.0327));
-        skCoordinateMap.put(14,new SKCoordinate(-116.939266667,34.0331));
-        skCoordinateMap.put(15,new SKCoordinate(-116.93605,34.038383));
-        skCoordinateMap.put(16,new SKCoordinate(-116.937183,34.038817));
-        skCoordinateMap.put(17,new SKCoordinate(-116.947816667,34.04415));
-        skCoordinateMap.put(18,new SKCoordinate(-116.94775,34.044416667));
-        skCoordinateMap.put(19,new SKCoordinate(-116.94535,34.045767));
-        skCoordinateMap.put(20,new SKCoordinate(-116.953889,34.052)); //oak glen
-        skCoordinateMap.put(21,new SKCoordinate(-117.591167,34.099717));
+        skCoordinateMap.put(10,new SKCoordinate(-116.941783333,34.0406));//
+//        skCoordinateMap.put(11,new SKCoordinate(-116.941067,34.040067));
+//        skCoordinateMap.put(12,new SKCoordinate(-116.95305,34.051367));
+//        skCoordinateMap.put(13,new SKCoordinate(-116.942967,34.0327));
+        skCoordinateMap.put(14,new SKCoordinate(-116.939266667,34.0331));//
+//        skCoordinateMap.put(15,new SKCoordinate(-116.93605,34.038383));
+//        skCoordinateMap.put(16,new SKCoordinate(-116.937183,34.038817));
+        skCoordinateMap.put(17,new SKCoordinate(-116.947816667,34.04415));//
+        skCoordinateMap.put(18,new SKCoordinate(-116.94775,34.044416667));//
+//        skCoordinateMap.put(19,new SKCoordinate(-116.94535,34.045767));
+//        skCoordinateMap.put(20,new SKCoordinate(-116.953889,34.052)); //oak glen
+//        skCoordinateMap.put(21,new SKCoordinate(-117.591167,34.099717));
 
-        //test coordinates 23.261377, 72.616499.. 23.228138, 72.632194
-//        skCoordinateMap.put(0,new SKCoordinate(72.675048,23.227350));
+        //test coordinates 23.261377, 72.616499.. 23.228138, 72.632194 *******************************
+//        skCoordinateMap.put(0,new SKCoordinate(73.789571,19.976137));
 //        skCoordinateMap.put(1,new SKCoordinate(72.632194,23.228138));
     }
 
@@ -447,6 +447,8 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
 
     }
 
+    private static final String PREFKEY_TITLE_VISITED = "titleVisited";
+
     @Override
     public boolean onDestinationReached() {
         return false;
@@ -468,7 +470,8 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
                 mMapIntent = MapActivity.launchMap(MapWithPinsActivity.this,
                         skCoordinateMap.get(marker_id).getLatitude(),
                         skCoordinateMap.get(marker_id).getLongitude(),
-                        "", R.drawable.cover_image_thumbnail, getString(R.string.app_name));
+                        PREFKEY_TITLE_VISITED,
+                        R.drawable.cover_image_thumbnail, getString(R.string.app_name));
 //                startActivity(mMapIntent);
             }
         });

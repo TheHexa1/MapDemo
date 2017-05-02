@@ -208,9 +208,15 @@ public class WiFiService extends Service {
 	}
 
 	public void playNotifyTune() {
-		MediaPlayer player = MediaPlayer.create(this, R.raw.notification);
+		final MediaPlayer player = MediaPlayer.create(this, R.raw.notification);
 		player.setLooping(false); // Set looping
 		player.setVolume(100, 100);
+		player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+			@Override
+			public void onCompletion(MediaPlayer mp) {
+				player.release();
+			}
+		});
 		player.start();
 	}
 

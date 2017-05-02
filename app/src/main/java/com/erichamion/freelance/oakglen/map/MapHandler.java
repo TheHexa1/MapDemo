@@ -589,6 +589,7 @@ public class MapHandler implements SKCurrentPositionListener, SKRouteListener, S
         // get navigation settings object
         mNavigationSettings = new SKNavigationSettings();
         // set the desired navigation settings
+        /////////////////***********************************************************
         SKNavigationSettings.SKNavigationType navType = SKNavigationSettings.SKNavigationType.REAL;
         mNavigationSettings.setNavigationType(navType);
         mNavigationSettings.setPositionerVerticalAlignment(-0.25f);

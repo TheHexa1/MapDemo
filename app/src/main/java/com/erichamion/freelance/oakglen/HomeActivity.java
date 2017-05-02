@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -24,13 +25,35 @@ import java.io.File;
 import java.util.List;
 
 
-public class HomeActivity extends MenuHandlerActivity implements SKPrepareMapTextureListener {
+public class HomeActivity extends MenuHandlerActivity implements SKPrepareMapTextureListener,
+        BookContents.OnContentsAvailableListener  {
 
     private RelativeLayout mRootContentView;
     private Intent mMapIntent;
     private double mLatitude = 34.0525, mLongitude = -116.953889;
     private static final String PREFKEY_TITLE_VISITED = "titleVisited";
     private String mMapStorageDirName;
+
+    public Pair<Integer, Integer> countVisitedLocations(BookContents contents) {
+        // Start with 1 to account for the title page
+        int numLocations = 1;
+        int visitedLocations = 0;
+        SharedPreferences prefs = getSharedPreferences(Util.SHARED_PREFERENCES_KEY, MODE_PRIVATE);
+        if (prefs.getBoolean(PREFKEY_TITLE_VISITED, false)) visitedLocations++;
+        for (int chapterIndex = 0; chapterIndex < contents.getNumChapters(); chapterIndex++) {
+            BookContents.Chapter currentChapter = contents.getChapter(chapterIndex);
+            for (int pageIndex = 0; pageIndex < currentChapter.getNumPages(); pageIndex++) {
+                numLocations++;
+                String prefkey = Util.getVisitedPrefkey(chapterIndex, pageIndex);
+                if(prefs.getBoolean(prefkey, false)) {
+                    visitedLocations++;
+                }
+            }
+        }
+        return new Pair<>(numLocations, visitedLocations);
+
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,7 +149,12 @@ public class HomeActivity extends MenuHandlerActivity implements SKPrepareMapTex
 //        ((TextView)findViewById(R.id.tv_test)).setText(spannableString);
 
         prefs.edit().putString(Util.PREFKEY_MAPRESOURCESPATH, mMapStorageDirName).apply();
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setUpContents();
     }
 
     @Override
@@ -171,5 +199,31 @@ public class HomeActivity extends MenuHandlerActivity implements SKPrepareMapTex
 
         return false;
 
+    }
+
+    public void setNumVisitedLocations(int visitedCount) {
+//        visitedLocationsIndicator.setRating(visitedLocations);
+        int indicator_apples[] = {
+                R.id.indicator_apple_1,R.id.indicator_apple_2,R.id.indicator_apple_3,
+                R.id.indicator_apple_4,R.id.indicator_apple_5,R.id.indicator_apple_6,
+                R.id.indicator_apple_7,R.id.indicator_apple_8,R.id.indicator_apple_9,
+                R.id.indicator_apple_10,R.id.indicator_apple_11,R.id.indicator_apple_12,
+                R.id.indicator_apple_13,R.id.indicator_apple_14,R.id.indicator_apple_15,
+        };
+
+        for(int i=0; i<visitedCount; i++){
+            ((ImageView)findViewById(indicator_apples[i])).setImageResource(R.drawable.colored_apple);
+        }
+    }
+
+    @Override
+    public void onContentsAvailable(BookContents contents) {
+        //populate visited locations with red apple marker
+        Pair<Integer, Integer> totalAndVisitedLocations = this.countVisitedLocations(contents);
+        setNumVisitedLocations(totalAndVisitedLocations.second);
+    }
+
+    private void setUpContents() {
+        BookContents.requestContents(this, this);
     }
 }

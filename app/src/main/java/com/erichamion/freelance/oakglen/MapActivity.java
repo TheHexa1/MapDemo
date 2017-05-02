@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.DrawableRes;
@@ -195,8 +196,8 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
             valid_qrcodes_map.put("{\"lat\":\"34.052\",\"long\":\"-116.953889\"}","-1"); //oak glen//*
             valid_qrcodes_map.put("{\"lat\":\"34.099717\",\"long\":\"-117.591167\"}","-1"); //newly added
 
-            //home location for test purpose
-//            valid_qrcodes_map.put("{\"lat\":\"23.228138\",\"long\":\"72.632194\"}","tennis_court_net"); //newly added
+            //home location for test purpose ***************************
+//            valid_qrcodes_map.put("{\"lat\":\"19.974897\",\"long\":\"73.790150\"}","tennis_court_net"); //newly added
 
 
             for(String str : valid_qrcodes_map.keySet()) {
@@ -493,6 +494,10 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
 
     @Override
     public boolean onDestinationReached() {
+
+        //play beep on reaching destination
+        playBeep();
+
         // Save the fact that this has been visited
         SharedPreferences prefs = getSharedPreferences(Util.SHARED_PREFERENCES_KEY, MODE_PRIVATE);
         prefs.edit().putBoolean(mVisitedPrefKey, true).apply();
@@ -509,5 +514,19 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
 
         // Don't continue checking whether the destination has been reached.
         return false;
+    }
+
+    public void playBeep(){
+        MediaPlayer mPlayer = MediaPlayer.create(this, R.raw.alert);
+        mPlayer.setLooping(false);
+        mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                // TODO Auto-generated method stub
+                mp.release();
+            }
+        });
+        mPlayer.start();
     }
 }

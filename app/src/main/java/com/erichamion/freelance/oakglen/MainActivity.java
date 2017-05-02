@@ -232,8 +232,8 @@ public class MainActivity
             latTextView.setText(latLong.first);
             assert longTextView != null;
             longTextView.setText(latLong.second);
-            Pair<Integer, Integer> totalAndVisitedLocations = this.countVisitedLocations(contents);
-            displayVisitedLocations(totalAndVisitedLocations.second);
+//            Pair<Integer, Integer> totalAndVisitedLocations = this.countVisitedLocations(contents);
+//            displayVisitedLocations(totalAndVisitedLocations.second);
 //            AppCompatRatingBar visitedLocationsIndicator = (AppCompatRatingBar) mTitleViewHolder.findViewById(R.id.visitedLocationsIndicator);
 //            assert visitedLocationsIndicator != null;
 //            visitedLocationsIndicator.setNumStars(totalAndVisitedLocations.first);
