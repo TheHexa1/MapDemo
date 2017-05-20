@@ -1,9 +1,14 @@
 package com.erichamion.freelance.oakglen;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.skobbler.ngx.SKPrepareMapTextureListener;
@@ -33,6 +39,11 @@ public class HomeActivity extends MenuHandlerActivity implements SKPrepareMapTex
     private double mLatitude = 34.0525, mLongitude = -116.953889;
     private static final String PREFKEY_TITLE_VISITED = "titleVisited";
     private String mMapStorageDirName;
+
+    int PERMISSION_ALL = 321;
+    String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_NETWORK_STATE};
 
     public Pair<Integer, Integer> countVisitedLocations(BookContents contents) {
         // Start with 1 to account for the title page
@@ -59,6 +70,15 @@ public class HomeActivity extends MenuHandlerActivity implements SKPrepareMapTex
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        //************************************************
+        //        ask for permissions in newer version of android.
+        boolean flag = hasPermissions(this, PERMISSIONS);
+
+        if(!flag){
+//            permission_allowed = 0;
+            ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
+        }
 
         Glide.with(this).load(R.drawable.homescreen_bg).into((ImageView) findViewById(R.id.iv_home_screen_bg));
 
@@ -139,17 +159,30 @@ public class HomeActivity extends MenuHandlerActivity implements SKPrepareMapTex
         } else {
             initMapLibraryAndEnableClicks();
         }
-
-//        SpannableString spannableString = new SpannableString("Lorem     ");
-//        Drawable d = getResources().getDrawable(R.drawable.map);
-//        d.setBounds(0, 0, 50, 50);
-//        ImageSpan span = new ImageSpan(d, ImageSpan.ALIGN_BOTTOM);
-////        ImageSpan span = new ImageSpan(this,R.drawable.map);
-//        spannableString.setSpan(span, 5,  5+1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-//        ((TextView)findViewById(R.id.tv_test)).setText(spannableString);
-
         prefs.edit().putString(Util.PREFKEY_MAPRESOURCESPATH, mMapStorageDirName).apply();
     }
+
+    //**************************
+    public static boolean hasPermissions(Context context, String... permissions) {
+        boolean hasAllPermissions = true;
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
+            //for Android M and above versions
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    // Permission Denied
+//                    Toast.makeText(context,"You need to allow all the required permissions to access this app!", Toast.LENGTH_LONG)
+//                            .show();
+                    hasAllPermissions = false;
+                }
+            }
+        }
+        return hasAllPermissions;
+    }
+
+//    public void initOnCreate(){
+//
+//    }
 
     @Override
     protected void onStart() {
@@ -225,5 +258,24 @@ public class HomeActivity extends MenuHandlerActivity implements SKPrepareMapTex
 
     private void setUpContents() {
         BookContents.requestContents(this, this);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+
+        //******************************************************
+        if(requestCode == PERMISSION_ALL){
+
+            for(int i=0; i<grantResults.length; i++){
+                if(grantResults[i] == PackageManager.PERMISSION_DENIED){
+                    Toast.makeText(getApplicationContext(),"You need to allow all the required permissions to use this app!", Toast.LENGTH_LONG)
+                            .show();
+                    ActivityCompat.finishAffinity(this);
+                }
+            }
+            return;
+        }
+
     }
 }

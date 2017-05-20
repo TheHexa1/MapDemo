@@ -200,7 +200,7 @@ public abstract class MenuHandlerActivity extends AppCompatActivity {
     }
 
     @Override
-    public final void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         List<String> denied = new ArrayList<>();
         for (int i = 0; i < grantResults.length; i++) {
             if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {

@@ -172,7 +172,7 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
 
             //            New gps cords
             valid_qrcodes_map.put("{\"lat\":\"34.031616667\",\"long\":\"-116.943416667\"}","redcoats");
-            valid_qrcodes_map.put("{\"lat\":\"34.032483\",\"long\":\"-116.939667\"}","gents");
+            valid_qrcodes_map.put("{\"lat\":\"34.032483333\",\"long\":\"-116.93966667\"}","gents");
             valid_qrcodes_map.put("{\"lat\":\"34.0332\",\"long\":\"-116.939266667\"}","bbq_wheel");
             valid_qrcodes_map.put("{\"lat\":\"34.038383333\",\"long\":\"-116.935883333\"}","climbing_rocks_face");
             valid_qrcodes_map.put("{\"lat\":\"34.051466667\",\"long\":\"-116.952533333\"}","squirrel_and_saw");
@@ -196,8 +196,10 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
             valid_qrcodes_map.put("{\"lat\":\"34.052\",\"long\":\"-116.953889\"}","-1"); //oak glen//*
             valid_qrcodes_map.put("{\"lat\":\"34.099717\",\"long\":\"-117.591167\"}","-1"); //newly added
 
-            //home location for test purpose ***************************
+            //home location for test purpose *************************** 23.228148, 72.632160
 //            valid_qrcodes_map.put("{\"lat\":\"19.974897\",\"long\":\"73.790150\"}","tennis_court_net"); //newly added
+            valid_qrcodes_map.put("{\"lat\":\"23.228148\",\"long\":\"72.63216\"}","tennis_court_net");
+            valid_qrcodes_map.put("{\"lat\":\"23.227903\",\"long\":\"72.632029\"}","gents");
 
 
             for(String str : valid_qrcodes_map.keySet()) {
@@ -257,10 +259,14 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
     public void onBackPressed() {
 
         if(isFromMapWithPinActivity){
+            this.finish();
             Intent i = new Intent(MapActivity.this, MapWithPinsActivity.class);
             startActivity(i);
+//            finish();
         } else if (mMapHandler.tryExit(this)) {
+            this.finish();
             super.onBackPressed();
+//            finish();
         }
 
     }

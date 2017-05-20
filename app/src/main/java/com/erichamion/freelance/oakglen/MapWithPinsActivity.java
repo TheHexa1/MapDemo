@@ -92,7 +92,9 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
     @Override
     public void onBackPressed() {
         Intent i = new Intent(this, HomeActivity.class);
+        this.finish();
         startActivity(i);
+//        finish();
     }
 
     private void initMarkerLocations(){
@@ -125,7 +127,7 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
 
         //test coordinates 23.261377, 72.616499.. 23.228138, 72.632194 *******************************
 //        skCoordinateMap.put(0,new SKCoordinate(73.789571,19.976137));
-//        skCoordinateMap.put(1,new SKCoordinate(72.632194,23.228138));
+        skCoordinateMap.put(1,new SKCoordinate(72.632160,23.228148));
     }
 
     //initialize maps
