@@ -8,27 +8,27 @@
     <chapter title="Oak Glen School House">
 
         <!--Test-->
-        <page
+        <!--<page
             img="@drawable/pageimg_01_01"
             gravity="centerCrop"
             latitude="23.228148"
-            longitude="72.632160" />
+            longitude="72.632160" />-->
         <!--original-->
-        <!--<page-->
-            <!--img="@drawable/pageimg_01_01"-->
-            <!--gravity="centerCrop"-->
-            <!--latitude="34.038383333"-->
-            <!--longitude="-116.935883333" />-->
-        <!--<page
-            img="@drawable/pageimg_01_02"
+        <page
+            img="@drawable/pageimg_01_01"
             gravity="centerCrop"
-            latitude="34.0385"
-            longitude="-116.9371" />-->
+            latitude="34.038383333"
+            longitude="-116.935883333" />
         <page
             img="@drawable/pageimg_01_02"
             gravity="centerCrop"
+            latitude="34.0385"
+            longitude="-116.9371" />
+        <!--<page
+            img="@drawable/pageimg_01_02"
+            gravity="centerCrop"
             latitude="23.227903"
-            longitude="72.632029" />
+            longitude="72.632029" />-->
         <page
             img="@drawable/pageimg_01_03"
             gravity="centerCrop"

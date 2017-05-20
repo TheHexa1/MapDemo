@@ -76,6 +76,7 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
     @Override
     protected void onResume() {
         super.onResume();
+//        mapView.clearOverlay(SKAnnotation.SK_ANNOTATION_TYPE_MARKER);
         mapViewHolder.onResume();
 
         SKLogging.writeLog("Init", "onResume - SKMaps initialization status=" + SKMaps.getInstance().isSKMapsInitialized(), SKLogging.LOG_DEBUG);
@@ -126,8 +127,9 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
 //        skCoordinateMap.put(21,new SKCoordinate(-117.591167,34.099717));
 
         //test coordinates 23.261377, 72.616499.. 23.228138, 72.632194 *******************************
-//        skCoordinateMap.put(0,new SKCoordinate(73.789571,19.976137));
-        skCoordinateMap.put(1,new SKCoordinate(72.632160,23.228148));
+//        skCoordinateMap.put(0,new SKCoordinate(73.789571,19.976137)); 23.227903, 72.632029
+//        skCoordinateMap.put(1,new SKCoordinate(72.632160,23.228148));
+//        skCoordinateMap.put(2,new SKCoordinate(72.631584,23.228106));
     }
 
     //initialize maps
@@ -191,7 +193,7 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
 //        annotationView.setView(findViewById(R.id.customMarker));
 //            annotationView.setView(customView);
             // set the annotation's type
-            annotationFromView.setAnnotationType(SKAnnotation.SK_ANNOTATION_TYPE_RED);
+            annotationFromView.setAnnotationType(SKAnnotation.SK_ANNOTATION_TYPE_MARKER);
 //            annotationFromView.setAnnotationView(annotationView);
             mapView.addAnnotation(annotationFromView, SKAnimationSettings.ANIMATION_POP_OUT);
         }
@@ -248,6 +250,7 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
         }
 
 //        mapView.setPositionAsCurrent(new SKCoordinate(-116.953889, 34.052), 0, true);
+        mapView.deleteAllAnnotationsAndCustomPOIs(); //remove all annotations before plotting again.
 
         prepareAnnotations();
     }

@@ -68,6 +68,13 @@ public class MapHandler implements SKCurrentPositionListener, SKRouteListener, S
     private static final int MAP_UPDATE_FREQUENCY_MILLIS = 200;
     private static final float ZOOM_INTERVAL = 0.5f;
 
+    /*
+    * for conditional annotations in setUpMap()
+    * false - draw annotation on destination point
+    * true - don't draw annotation on destination point
+    * */
+    boolean isFromMapWithPinActivity = false;
+
     // Roughly 2 feet.
     private static final double LOCATION_SENSITIVITY = 2.0 / 3.0;
 
@@ -114,7 +121,8 @@ public class MapHandler implements SKCurrentPositionListener, SKRouteListener, S
         mUiHandler = new SafeMapUiHandler(uiHandler);
     }
 
-    public void init(double densityRatio, double destLatitude, double destLongitude, boolean reportWhenReached, @NonNull SKMapViewHolder mapView) {
+    public void init(double densityRatio, double destLatitude, double destLongitude, boolean reportWhenReached,
+                     @NonNull SKMapViewHolder mapView, boolean isFromMapWithPinActivity) {
         mDensityRatio = densityRatio;
 
         mDest = new SKCoordinate();
@@ -124,6 +132,7 @@ public class MapHandler implements SKCurrentPositionListener, SKRouteListener, S
         mMapView = mapView;
         mMapView.setMapSurfaceListener(this);
 
+        this.isFromMapWithPinActivity = isFromMapWithPinActivity ;
         mShouldReportWhenReached = reportWhenReached;
 
         startLocationUpdates();
@@ -431,13 +440,16 @@ public class MapHandler implements SKCurrentPositionListener, SKRouteListener, S
         mMapSurfaceView = mMapView.getMapSurfaceView();
         applyMapSettings(mMapSurfaceView);
         mMapSurfaceView.getMapSettings().setFollowerMode(SKMapSettings.SKMapFollowerMode.NONE);
+        mMapSurfaceView.deleteAllAnnotationsAndCustomPOIs(); //delete all annotations before plotting destination point
 
-        SKAnnotation destAnnotation = new SKAnnotation(100);
-        destAnnotation.setAnnotationType(SKAnnotation.SK_ANNOTATION_TYPE_MARKER);
-        destAnnotation.setLocation(mDest);
-        destAnnotation.setMininumZoomLevel(SKMapSurfaceView.MAXIMUM_ZOOM_LEVEL);
+//        if(!isFromMapWithPinActivity) {
+            SKAnnotation destAnnotation = new SKAnnotation(100);
+            destAnnotation.setAnnotationType(SKAnnotation.SK_ANNOTATION_TYPE_MARKER);
+            destAnnotation.setLocation(mDest);
+            destAnnotation.setMininumZoomLevel(SKMapSurfaceView.MAXIMUM_ZOOM_LEVEL);
 
-        mMapSurfaceView.addAnnotation(destAnnotation, SKAnimationSettings.ANIMATION_POP_OUT);
+            mMapSurfaceView.addAnnotation(destAnnotation, SKAnimationSettings.ANIMATION_POP_OUT);
+//        }
 
         setViewingRegion(false);
 

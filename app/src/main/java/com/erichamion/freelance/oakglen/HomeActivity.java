@@ -234,6 +234,12 @@ public class HomeActivity extends MenuHandlerActivity implements SKPrepareMapTex
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        ActivityCompat.finishAffinity(this);
+    }
+
     public void setNumVisitedLocations(int visitedCount) {
 //        visitedLocationsIndicator.setRating(visitedLocations);
         int indicator_apples[] = {

@@ -28,6 +28,8 @@ import com.erichamion.freelance.oakglen.bm.BitmapManager;
 import com.erichamion.freelance.oakglen.map.MapHandler;
 import com.erichamion.freelance.oakglen.map.MapUiHandler;
 import com.skobbler.ngx.map.SKMapViewHolder;
+import com.skobbler.ngx.navigation.SKNavigationManager;
+import com.skobbler.ngx.routing.SKRouteManager;
 
 import org.json.JSONObject;
 
@@ -144,7 +146,9 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
         double densityRatio = (double) getResources().getDisplayMetrics().densityDpi / (double) DisplayMetrics.DENSITY_MEDIUM;
         mMapView = (SKMapViewHolder) findViewById(R.id.view_group_map);
         assert mMapView != null;
-        mMapHandler.init(densityRatio, extras.getDouble(KEY_LATITUDE), extras.getDouble(KEY_LONGITUDE), !mHasBeenVisited, mMapView);
+//        mMapHandler.init(densityRatio, extras.getDouble(KEY_LATITUDE), extras.getDouble(KEY_LONGITUDE), !mHasBeenVisited, mMapView);
+        mMapHandler.init(densityRatio, extras.getDouble(KEY_LATITUDE), extras.getDouble(KEY_LONGITUDE),
+                true, mMapView, isFromMapWithPinActivity);
 
         //for pop-up text
         try {
@@ -196,10 +200,11 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
             valid_qrcodes_map.put("{\"lat\":\"34.052\",\"long\":\"-116.953889\"}","-1"); //oak glen//*
             valid_qrcodes_map.put("{\"lat\":\"34.099717\",\"long\":\"-117.591167\"}","-1"); //newly added
 
-            //home location for test purpose *************************** 23.228148, 72.632160
+            //home location for test purpose *************************** 23.228106, 72.631584
 //            valid_qrcodes_map.put("{\"lat\":\"19.974897\",\"long\":\"73.790150\"}","tennis_court_net"); //newly added
-            valid_qrcodes_map.put("{\"lat\":\"23.228148\",\"long\":\"72.63216\"}","tennis_court_net");
-            valid_qrcodes_map.put("{\"lat\":\"23.227903\",\"long\":\"72.632029\"}","gents");
+//            valid_qrcodes_map.put("{\"lat\":\"23.228148\",\"long\":\"72.63216\"}","tennis_court_net");
+//            valid_qrcodes_map.put("{\"lat\":\"23.227903\",\"long\":\"72.632029\"}","gents");
+//            valid_qrcodes_map.put("{\"lat\":\"23.228106\",\"long\":\"72.631584\"}","feed_station");
 
 
             for(String str : valid_qrcodes_map.keySet()) {
@@ -258,8 +263,9 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
     @Override
     public void onBackPressed() {
 
+        SKRouteManager.getInstance().clearCurrentRoute();
         if(isFromMapWithPinActivity){
-            this.finish();
+//            SKNavigationManager.getInstance().stopNavigation();
             Intent i = new Intent(MapActivity.this, MapWithPinsActivity.class);
             startActivity(i);
 //            finish();
