@@ -258,7 +258,7 @@ public class HomeActivity extends MenuHandlerActivity implements SKPrepareMapTex
     @Override
     public void onContentsAvailable(BookContents contents) {
         //populate visited locations with red apple marker
-        Pair<Integer, Integer> totalAndVisitedLocations = this.countVisitedLocations(contents);
+        Pair<Integer, Integer> totalAndVisitedLocations = countVisitedLocations(contents);
         setNumVisitedLocations(totalAndVisitedLocations.second);
     }
 

@@ -315,48 +315,84 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
 
     }
 
+    private int[] locationImages = {
+            R.drawable.pageimg_05_01,
+            R.drawable.pageimg_05_03,
+            R.drawable.pageimg_05_02,
+            R.drawable.pageimg_01_01,
+            R.drawable.pageimg_04_01,
+            R.drawable.pageimg_01_02,
+            R.drawable.pageimg_04_02,
+            R.drawable.pageimg_02_02,
+            R.drawable.pageimg_02_03,
+            R.drawable.pageimg_01_03
+    };
+
     @Override
     public void onAnnotationSelected(final SKAnnotation annotation) {
 
         String title = "Title Not Available";
+        int placeHolderThumb = R.drawable.cover_image_thumbnail;
+        String visitedPrefKey = "";
 
         switch (annotation.getUniqueID()) {
             case 0:
                 title = "Red Coats";
+                placeHolderThumb = locationImages[0];
+                visitedPrefKey = Util.getVisitedPrefkey(5,1);
                 break;
             case 1:
                 title = "Gents";
+                placeHolderThumb = locationImages[1];
+                visitedPrefKey = Util.getVisitedPrefkey(5,3);
                 break;
             case 2:
                 title = "BBQ Wheel";
+                placeHolderThumb = locationImages[2];
+                visitedPrefKey = Util.getVisitedPrefkey(5,2);
                 break;
             case 3:
                 title = "Climbing Rock Face";
+                placeHolderThumb = locationImages[3];
+                visitedPrefKey = Util.getVisitedPrefkey(1,1);
                 break;
             case 4:
                 title = "Squirrel and Saw";
+                placeHolderThumb = locationImages[4];
+                visitedPrefKey = Util.getVisitedPrefkey(4,1);
                 break;
             case 5:
                 title = "School House";
+                placeHolderThumb = locationImages[5];
+                visitedPrefKey = Util.getVisitedPrefkey(1,2);
                 break;
             case 6:
                 title = "Feed Station";
+                placeHolderThumb = locationImages[6];
+                visitedPrefKey = Util.getVisitedPrefkey(4,2);
                 break;
             case 7:
                 title = "Concervency Sign";
+                placeHolderThumb = locationImages[7];
+                visitedPrefKey = Util.getVisitedPrefkey(2,2);
                 break;
             case 8:
                 title = "Wilsher Peak Mountian Siloette";
+                placeHolderThumb = locationImages[8];
+                visitedPrefKey = Util.getVisitedPrefkey(2,3);
                 break;
             case 9:
                 title = "Tennis Court Net";
+                placeHolderThumb = locationImages[9];
+                visitedPrefKey = Util.getVisitedPrefkey(1,3);
                 break;
             case 20:
                 title = "Oak Glen";
+                visitedPrefKey = PREFKEY_TITLE_VISITED;
                 break;
         }
 
-        askForNavigationDialog(annotation.getUniqueID(), title);
+        askForNavigationDialog(annotation.getUniqueID(), title, visitedPrefKey, placeHolderThumb);
     }
 
     @Override
@@ -459,7 +495,7 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
         return false;
     }
 
-    private void askForNavigationDialog(final int marker_id, String title){
+    private void askForNavigationDialog(final int marker_id, String title, final String visitedPrefKey, final int placeHolderThumbnail){
         android.support.v7.app.AlertDialog.Builder alertDialog = new android.support.v7.app.AlertDialog.Builder(this);
 
         // Setting Dialog Message
@@ -475,8 +511,8 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
                 mMapIntent = MapActivity.launchMap(MapWithPinsActivity.this,
                         skCoordinateMap.get(marker_id).getLatitude(),
                         skCoordinateMap.get(marker_id).getLongitude(),
-                        PREFKEY_TITLE_VISITED,
-                        R.drawable.cover_image_thumbnail, getString(R.string.app_name));
+                        visitedPrefKey,
+                        placeHolderThumbnail, getString(R.string.app_name));
 //                startActivity(mMapIntent);
             }
         });

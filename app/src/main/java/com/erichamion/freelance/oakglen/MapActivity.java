@@ -146,6 +146,8 @@ public class MapActivity extends MenuHandlerActivity implements MapUiHandler {
         double densityRatio = (double) getResources().getDisplayMetrics().densityDpi / (double) DisplayMetrics.DENSITY_MEDIUM;
         mMapView = (SKMapViewHolder) findViewById(R.id.view_group_map);
         assert mMapView != null;
+
+        //reportOndestinationReached should be true, because we want to display pop-up after estination reached
 //        mMapHandler.init(densityRatio, extras.getDouble(KEY_LATITUDE), extras.getDouble(KEY_LONGITUDE), !mHasBeenVisited, mMapView);
         mMapHandler.init(densityRatio, extras.getDouble(KEY_LATITUDE), extras.getDouble(KEY_LONGITUDE),
                 true, mMapView, isFromMapWithPinActivity);
