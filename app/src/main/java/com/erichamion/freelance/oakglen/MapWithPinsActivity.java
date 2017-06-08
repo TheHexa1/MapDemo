@@ -101,7 +101,7 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
     private void initMarkerLocations(){
 
         //location with names
-        skCoordinateMap.put(0,new SKCoordinate(-116.943416667,34.031616667));//
+        skCoordinateMap.put(0,new SKCoordinate(-116.943416667,34.031616667));//-*/*/-*/-*/*/ uncomment it
         skCoordinateMap.put(1,new SKCoordinate(-116.939667,34.032483));//
         skCoordinateMap.put(2,new SKCoordinate(-116.939266667,34.0332));//
         skCoordinateMap.put(3,new SKCoordinate(-116.935883333,34.038383333));//
@@ -126,8 +126,8 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
 //        skCoordinateMap.put(20,new SKCoordinate(-116.953889,34.052)); //oak glen
 //        skCoordinateMap.put(21,new SKCoordinate(-117.591167,34.099717));
 
-        //test coordinates 23.261377, 72.616499.. 23.228138, 72.632194 *******************************
-//        skCoordinateMap.put(0,new SKCoordinate(73.789571,19.976137)); 23.227903, 72.632029
+        //test coordinates 23.261377, 72.616499.. 23.228138, 72.632194 , 19.974907, 73.790149*******************************
+//        skCoordinateMap.put(0,new SKCoordinate(73.790149,19.974907)); //23.227903, 72.632029
 //        skCoordinateMap.put(1,new SKCoordinate(72.632160,23.228148));
 //        skCoordinateMap.put(2,new SKCoordinate(72.631584,23.228106));
     }
@@ -339,52 +339,52 @@ public class MapWithPinsActivity extends AppCompatActivity implements SKMapSurfa
             case 0:
                 title = "Red Coats";
                 placeHolderThumb = locationImages[0];
-                visitedPrefKey = Util.getVisitedPrefkey(5,1);
+                visitedPrefKey = Util.getVisitedPrefkey(4,0); //need to use '(ch/page)index-1' , because homepage populates visited location from 0 to 4
                 break;
             case 1:
                 title = "Gents";
                 placeHolderThumb = locationImages[1];
-                visitedPrefKey = Util.getVisitedPrefkey(5,3);
+                visitedPrefKey = Util.getVisitedPrefkey(4,2);
                 break;
             case 2:
                 title = "BBQ Wheel";
                 placeHolderThumb = locationImages[2];
-                visitedPrefKey = Util.getVisitedPrefkey(5,2);
+                visitedPrefKey = Util.getVisitedPrefkey(4,1);
                 break;
             case 3:
                 title = "Climbing Rock Face";
                 placeHolderThumb = locationImages[3];
-                visitedPrefKey = Util.getVisitedPrefkey(1,1);
+                visitedPrefKey = Util.getVisitedPrefkey(0,0);
                 break;
             case 4:
                 title = "Squirrel and Saw";
                 placeHolderThumb = locationImages[4];
-                visitedPrefKey = Util.getVisitedPrefkey(4,1);
+                visitedPrefKey = Util.getVisitedPrefkey(3,0);
                 break;
             case 5:
                 title = "School House";
                 placeHolderThumb = locationImages[5];
-                visitedPrefKey = Util.getVisitedPrefkey(1,2);
+                visitedPrefKey = Util.getVisitedPrefkey(0,1);
                 break;
             case 6:
                 title = "Feed Station";
                 placeHolderThumb = locationImages[6];
-                visitedPrefKey = Util.getVisitedPrefkey(4,2);
+                visitedPrefKey = Util.getVisitedPrefkey(3,1);
                 break;
             case 7:
                 title = "Concervency Sign";
                 placeHolderThumb = locationImages[7];
-                visitedPrefKey = Util.getVisitedPrefkey(2,2);
+                visitedPrefKey = Util.getVisitedPrefkey(1,1);
                 break;
             case 8:
                 title = "Wilsher Peak Mountian Siloette";
                 placeHolderThumb = locationImages[8];
-                visitedPrefKey = Util.getVisitedPrefkey(2,3);
+                visitedPrefKey = Util.getVisitedPrefkey(1,2);
                 break;
             case 9:
                 title = "Tennis Court Net";
                 placeHolderThumb = locationImages[9];
-                visitedPrefKey = Util.getVisitedPrefkey(1,3);
+                visitedPrefKey = Util.getVisitedPrefkey(0,2);
                 break;
             case 20:
                 title = "Oak Glen";

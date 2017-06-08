@@ -7,12 +7,12 @@
     backgroundGravity="center|fill">
     <chapter title="Oak Glen School House">
 
-        <!--Test-->
-        <!--<page
+        <!--Test 19.974907, 73.790149-->
+       <!-- <page
             img="@drawable/pageimg_01_01"
             gravity="centerCrop"
-            latitude="23.228148"
-            longitude="72.632160" />-->
+            latitude="19.974907"
+            longitude="73.790149" />-->
         <!--original-->
         <page
             img="@drawable/pageimg_01_01"
